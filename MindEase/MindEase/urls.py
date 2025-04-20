@@ -18,12 +18,19 @@ from django.contrib import admin
 from django.urls import path
 from MindEase import views
 
+# urlpatterns = from django.urls import path
+# from . import views
+# from django.contrib import admin
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('conditions/',views.conditions,name='cond'),
-    path('appointment/', views.appointment,name='appoi'),
-    path('funzone/', views.funzone,name='fun'),
-    path('chatbot/', views.chatbot,name='bot'),
-    path('', views.index,name='index'),
-    path('appointment/redirect/', views.redirect,name='redirect'),
+
+    # Top-level
+    path('', views.index, name='index'),
+    path('psycoeducation/', views.psedu, name='psedu'),
+    path('appointment/', views.appointment, name='appoi'),
+    path('funzone/', views.funzone, name='fun'),
+    path('chatbot/', views.chatbot, name='bot'),
+    path('resources/', views.resources, name='rces'),
+    path('appointment/redirect/', views.redirect, name='redirect'),
 ]
