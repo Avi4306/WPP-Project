@@ -13,11 +13,11 @@
       <div class="logo">MindEase</div>
       <ul class="nav-links">
         <li><a href="{% url 'index' %}">Home</a></li>
-        <li><a href="{% url 'cond' %}">Conditions</a></li>
+        <li><a href="{% url 'psedu' %}">Psychoeducation</a></li>
         <li><a href="{% url 'bot' %}">Psychobot</a></li>
         <li><a href="{% url 'appoi' %}">Appointment</a></li>
         <li><a href="{% url 'fun' %}">Fun Zone</a></li>
-        <li><a href="https://www.nami.org/" target="blank">Resources</a></li>
+        <li><a href="{% url 'rces' %}" target="blank">Resources</a></li>
       </ul>
     </nav>
   </header>
@@ -34,7 +34,7 @@
     <div class="hero-content">
       <h1>Look For Mental Health Conditions</h1>
       <p>There are no Mental Disorders, only Mental Conditions.</p>
-      <a href="{% url 'cond' %}" class="cta-button">Check Mental Health Conditions</a>
+      <a href="{% url 'psedu' %}" class="cta-button">Check Mental Health Conditions</a>
     </div>
   </section>
   <div class="quotes">You are not a burden. You have a burden, which by definition is too heavy to carry alone.</div>
