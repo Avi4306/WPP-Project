@@ -1,0 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f7fb;
+    color: #333;
+  }
+  
+  header {
+    background-color: #4b6cb7;
+    background-image: linear-gradient(to right, #4b6cb7, #182848);
+    padding: 1rem 2rem;
+    color: white;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+    background: url('https://cdn.pixabay.com/photo/2022/07/15/18/27/mental-health-7323725_1280.png') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    position: relative;
+    margin-bottom: 300px;
+    
+  }
+  
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #ff7e5f;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #feb47b;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #eee;
+    font-size: 0.9rem;
+  }
+  
+  .page-title {
+    text-align: center;
+    padding: 2rem;
+    background-color: #e8efff;
+  }
+  .quotes{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 300px;
+    text-align: center;
+  }
+  .conditions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+
+  .conditions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+
+  .condition-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    flex: 1 1 250px;
+    height: auto; /* ✅ Allow height to expand */
+    overflow: visible; /* ✅ Don't cut off text */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  .condition-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .condition-card h2 {
+    color: #4b6cb7;
+    margin-bottom: 0.5rem;
+  }
+  
+  .chatbot-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 1rem;
+  }
+  
+  .chatbox {
+    height: 300px;
+    overflow-y: auto;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .message {
+    margin: 0.5rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 20px;
+    max-width: 80%;
+  }
+  
+  .message.user {
+    background-color: #d1e7dd;
+    align-self: flex-end;
+    margin-left: auto;
+  }
+  
+  .message.bot {
+    background-color: #e2e3e5;
+    align-self: flex-start;
+    margin-right: auto;
+  }
+  
+  #chat-form {
+    display: flex;
+    margin-top: 1rem;
+    gap: 0.5rem;
+  }
+  
+  #user-input {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  #chat-form button {
+    padding: 0.75rem 1.2rem;
+    background-color: #4b6cb7;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .appointment-form {
+    max-width: 500px;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .appointment-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .appointment-form label {
+    font-weight: bold;
+    color: #4b6cb7;
+  }
+  
+  .appointment-form input,
+  .appointment-form select {
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .appointment-form button {
+    padding: 0.75rem;
+    background-color: #4b6cb7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .appointment-form button:hover {
+    background-color: #3a539b;
+  }
+  
+  .funzone-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+  
+  .fun-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .fun-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .fun-card h2 {
+    color: #4b6cb7;
+    margin-bottom: 0.5rem;
+  }
+  
+  .fun-card a {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #4b6cb7;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+  
+  .fun-card a:hover {
+    background-color: #3a539b;
+  }
+  #hero1{
+    background: url('https://cdn.pixabay.com/photo/2022/07/22/02/58/resilience-7337258_1280.jpg') no-repeat center center/cover;
+  }
+  #hero2{
+    background: url('https://cdn.pixabay.com/photo/2022/08/17/20/00/psychotherapy-7393380_1280.png') no-repeat center center/cover;
+  }
+  #hero3{
+    background: url('https://cdn.pixabay.com/photo/2023/01/14/11/24/counseling-7717987_1280.png') no-repeat center center/cover;
+  }
+  #hero4{
+    background: url('https://cdn.pixabay.com/photo/2022/10/18/11/02/woman-7529904_1280.png') no-repeat center center/cover;
+  }

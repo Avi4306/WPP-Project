@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Appointment - MindEase</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  <script>
+      function gotonextpage()
+        {
+            window.location.href="redirect/"
+        }
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">MindEase</div>
+      <!-- <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="conditions.html">Conditions</a></li>
+        <li><a href="chatbot.html">Chatbot</a></li>
+        <li><a href="appointment.html">Appointment</a></li>
+        <li><a href="funzone.html">Fun Zone</a></li>
+      </ul> -->
+    </nav>
+  </header>
+
+  <section class="page-title">
+    <h1>Book an Appointment</h1>
+    <p>Get professional help from licensed mental health experts.</p>
+  </section>
+
+  <section class="appointment-form">
+    <form>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" required />
+
+      <label for="condition">Concern</label>
+      <select id="condition" required>
+        <option value="">--Select--</option>
+        <option value="depression">Depression</option>
+        <option value="anxiety">Anxiety</option>
+        <option value="ptsd">PTSD</option>
+        <option value="ocd">OCD</option>
+        <option value="bipolar">Bipolar Disorder</option>
+      </select>
+
+      <label for="date">Preferred Date</label>
+      <input type="date" id="date" required />
+
+      <label for="time">Preferred Time</label>
+      <input type="time" id="time" required />
+
+      <button type="submit" onclick="gotonextpage()">Book Appointment</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 MindEase | For Support, Call: 1800-123-HELP</p>
+  </footer>
+</body>
+</html>
