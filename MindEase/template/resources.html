@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources - Mental Health Awareness</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">MindEase</div>
+    </nav>
+  </header>
+
+  <section class="page-title">
+    <h1>Resources</h1>
+    <p>Your mind matters. Let's get you well!</p>
+    <ul class="internal-nav">
+      <li><a href="#books">Books</a></li>
+      <li><a href="#articles">Articles</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#podcasts">Podcasts</a></li>
+      <li><a href="#movies">Movies</a></li>
+    </ul>
+  </section>
+
+  <section class="section" id="books">
+    <h2>Books</h2>
+    <div class="reference-item">
+      <img src="{% static 'book1.jpg' %}" alt="The Body Keeps the Score">
+      <div><strong>The Body Keeps the Score</strong> by Bessel van der Kolk – A powerful exploration of trauma and recovery.</div>
+    </div>
+    <div class="reference-item">
+      <img src="{% static 'book2.jpg' %}" alt="Feeling Good Book">
+      <div><strong>Feeling Good</strong> by Dr. David D. Burns – A practical guide using cognitive behavioral therapy for depression.</div>
+    </div>
+  </section>
+
+  <section class="section" id="articles">
+    <h2>Articles</h2>
+    <div class="reference-item">
+      <img src="{% static 'article1.jpg' %}" alt="Psychology Today">
+      <div><strong><a href="https://www.psychologytoday.com/" target="_blank">Psychology Today</a></strong> – An online magazine featuring mental health news, research, and professional insights.</div>
+    </div>
+    <div class="reference-item">
+      <img src="{% static 'article2.png' %}" alt="WHO">
+      <div><strong><a href="https://www.who.int/health-topics/mental-health" target="_blank">WHO: Mental Health</a></strong> – World Health Organization's insights and reports on mental health globally.</div>
+    </div>
+  </section>
+
+  <section class="section" id="videos">
+    <h2>Videos</h2>
+    <div class="reference-item">
+      <img src="{% static 'video1.jpg' %}" alt="TED Talk">
+      <div><strong><a href="https://www.ted.com/talks/guy_winch_the_case_for_emotional_hygiene" target="_blank">The Case for Emotional Hygiene</a></strong> – TED Talk by Guy Winch on prioritizing mental health.</div>
+    </div>
+    <div class="reference-item">
+      <img src="{% static 'video2.jpg' %}" alt="YouTube Mental Health">
+      <div><strong><a href="https://www.youtube.com/watch?v=MB5IX-np5fE" target="_blank">What is Depression?</a></strong> – A short animated video explaining depression in simple terms.</div>
+    </div>
+  </section>
+
+  <section class="section" id="podcasts">
+    <h2>Podcasts</h2>
+    <div class="reference-item">
+      <img src="{% static 'podcasts1.png' %}" alt="The Happiness Lab">
+      <div><strong><a href="https://www.happinesslab.fm/" target="_blank">The Happiness Lab</a></strong> – Hosted by Dr. Laurie Santos, exploring science-based tips for a better mental life.</div>
+    </div>
+    <div class="reference-item">
+      <img src="{% static 'podcast2.jpg' %}" alt="Therapy Chat">
+      <div><strong><a href="https://www.therapychatpodcast.com/" target="_blank">Therapy Chat</a></strong> – A show on psychotherapy, self-care, and trauma-informed healing.</div>
+    </div>
+  </section>
+
+  <section class="section" id="movies">
+    <h2>Movies</h2>
+    <div class="reference-item">
+      <img src="{% static 'mov1.jpg' %}" alt="A Beautiful Mind">
+      <div><strong>A Beautiful Mind</strong> – A touching biographical drama depicting schizophrenia and resilience.</div>
+    </div>
+    <div class="reference-item">
+      <img src="{% static 'mov2.jpg' %}" alt="Silver Linings Playbook">
+      <div><strong>Silver Linings Playbook</strong> – A story about love, mental illness, and personal growth.</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Need help? Call 1-800 891 4416 — You're not alone.</p>
+  </footer>
+</body>
+</html>
