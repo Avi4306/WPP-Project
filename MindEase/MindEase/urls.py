@@ -23,7 +23,7 @@ urlpatterns = [
     path('conditions/',views.conditions,name='cond'),
     path('appointment/', views.appointment,name='appoi'),
     path('funzone/', views.funzone,name='fun'),
-    path('chatbot/', views.chatbot,name='bot'),
+    path('psychoeducation/', views.psychoeducation,name='psychoedu'),
     path('', views.index,name='index'),
     path('appointment/redirect/', views.redirect,name='redirect'),
 ]

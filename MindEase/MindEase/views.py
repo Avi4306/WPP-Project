@@ -7,8 +7,8 @@ def index(request):
 def appointment(request):
     return render(request,"appointment.html")
 
-def chatbot(request):
-    return render(request,'chatbot.html')
+def psychoeducation(request):
+    return render(request,'psychoeducation.html')
 
 def conditions(request):
     return render(request,'conditions.html')

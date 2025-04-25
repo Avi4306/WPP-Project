@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MindEase - Mental Health Support</title>
   <link rel="stylesheet" href="{% static 'styles.css' %}" />
+
 </head>
 <body>
   <header>
@@ -14,7 +15,7 @@
       <ul class="nav-links">
         <li><a href="{% url 'index' %}">Home</a></li>
         <li><a href="{% url 'cond' %}">Conditions</a></li>
-        <li><a href="{% url 'bot' %}">Psychobot</a></li>
+        <li><a href="{% url 'psychoedu' %}">PsychoEducation</a></li>
         <li><a href="{% url 'appoi' %}">Appointment</a></li>
         <li><a href="{% url 'fun' %}">Fun Zone</a></li>
         <li><a href="https://www.nami.org/" target="blank">Resources</a></li>
@@ -40,9 +41,9 @@
   <div class="quotes">You are not a burden. You have a burden, which by definition is too heavy to carry alone.</div>
   <section class="hero" id="hero2">
     <div class="hero-content">
-      <h1>Chat with our Psychobot</h1>
+      <h1>Chat with our PsychoEducation</h1>
       <p>Explore, express, and heal — all in one safe space.</p>
-      <a href="{% url 'bot' %}" class="cta-button">Chat with Psychobot</a>
+      <a href="{% url 'psychoedu' %}" class="cta-button">Chat with Psychobot</a>
     </div>
   </section>
   <div class="quotes">Your illness does not define you. Your strength and courage does.</div>
@@ -65,5 +66,8 @@
   <footer>
     <p>© 2025 MindEase | For Support, Call: 1800-123-HELP | Designed By: Rudra, Avi, Vishva, Manthan</p>
   </footer>
+  
+  <script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2025/04/24/05/20250424054554-VFKX9ELD.js"></script>
 </body>
 </html>

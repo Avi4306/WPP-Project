@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health Awareness</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">MindEase</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="conditions.html">Conditions</a></li>
+        <li><a href="psychoeducation.html">Chatbot</a></li>
+        <li><a href="appointment.html">Appointment</a></li>
+        <li><a href="funzone.html">Fun Zone</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="page-title">
+    <h1>PsychoEducation</h1>
+    <p>Together we can break the stigma and support mental well-being</p>
+  </section>
+
+  <section>
+    <h2 class="section-heading">Common Mental Health Disorders</h2>
+      <div class="condition-grid">
+        <div class="conditions">
+          <img src="{% static 'depression.avif' %}" alt="Depression" class="poster" />
+          <div class="conditions-content">
+            <h3>Depression</h3>
+            <p>A mood disorder marked by persistent sadness, lack of interest, and fatigue.</p>
+            <a  href="https://en.wikipedia.org/wiki/Major_depressive_disorder" target="_blank"class="learn-more">Learn More</a>
+          </div>
+        </div>
+    
+        <div class="conditions">
+          <img src="{% static 'anxiety1.jpg' %}" alt="Anxiety" class="poster" />
+          <div class="conditions-content">
+            <h3>Anxiety</h3>
+            <p>Characterized by excessive worry, restlessness, and physical tension.</p>
+            <a href="https://en.wikipedia.org/wiki/Anxiety_disorder" target="_blank"class="learn-more">Learn More</a>
+          </div>
+        </div>
+    
+        <div class="conditions">
+          <img src="{% static 'ptsd.png' %}" alt="PTSD" class="poster" />
+          <div class="conditions-content">
+            <h3>PTSD</h3>
+            <p>Develops after exposure to a traumatic event; includes flashbacks and hypervigilance.</p>
+            <a href="https://en.wikipedia.org/wiki/Post-traumatic_stress_disorder" target="_blank" class="learn-more">Learn More</a>
+          </div>
+        </div>
+    
+        <div class="conditions">
+          <img src="{% static 'ocd.png' %}" alt="OCD" class="poster" />
+          <div class="conditions-content">
+            <h3>OCD</h3>
+            <p>Marked by unwanted repetitive thoughts and ritualized behaviors.</p>
+            <a href="https://en.wikipedia.org/wiki/Obsessive–compulsive_disorder" target="_blank" class="learn-more">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Did You Know? -->
+  <section>
+    <h2 class="section-heading">Did You Know?</h2>
+    <div class="facts-wrapper">
+      <ul class="facts">
+        <li>One in four people in the world will be affected by mental or neurological disorders at some point in their lives.</li>
+        <li>Close to 1 billion people are living with a mental disorder globally.</li>
+        <li>Depression is a leading cause of disability worldwide.</li>
+        <li>Every 40 seconds, someone dies by suicide — that's over 800,000 people every year.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-heading">Impact of Mental Illness (Global Stats)</h2>
+    <div class="graph-wrapper"><img src="{{ graph }}" alt="Mental Health Bar Chart"></div>
+  </section>
+
+  <!-- How You Can Help -->
+  <section>
+    <h2 class="section-heading">How You Can Help</h2>
+    <div class="facts-wrapper">
+      <ul class="facts">
+        <li>Listen without judgment when someone opens up.</li>
+        <li>Encourage those struggling to seek professional help.</li>
+        <li>Support mental health organizations and spread awareness.</li>
+        <li>Educate yourself and others about mental health.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Mental Health Awareness. All rights reserved.</p>
+  </footer>
+</body>
+</html>
