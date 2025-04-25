@@ -29,6 +29,10 @@ nav {
   font-size: 1.8rem;
   font-weight: bold;
 }
+.logo a{
+  color: white;
+  text-decoration: none;
+}
 .nav-links {
   list-style: none;
   display: flex;

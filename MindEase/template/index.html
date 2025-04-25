@@ -1,73 +1,88 @@
 {% load static%}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MindEase - Mental Health Support</title>
-  <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindEase - Mental Health Support</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo"><a href="{% url 'index' %}">MindEase</a></div>
+        <ul class="nav-links">
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="{% url 'cond' %}">Conditions</a></li>
+          <li><a href="{% url 'psychoedu' %}">PsychoEducation</a></li>
+          <li><a href="{% url 'appoi' %}">Appointment</a></li>
+          <li><a href="{% url 'fun' %}">Fun Zone</a></li>
+          <li><a href="https://www.nami.org/" target="blank">Resources</a></li>
+        </ul>
+      </nav>
+    </header>
 
-</head>
-<body>
-  <header>
-    <nav>
-      <div class="logo">MindEase</div>
-      <ul class="nav-links">
-        <li><a href="{% url 'index' %}">Home</a></li>
-        <li><a href="{% url 'cond' %}">Conditions</a></li>
-        <li><a href="{% url 'psychoedu' %}">PsychoEducation</a></li>
-        <li><a href="{% url 'appoi' %}">Appointment</a></li>
-        <li><a href="{% url 'fun' %}">Fun Zone</a></li>
-        <li><a href="https://www.nami.org/" target="blank">Resources</a></li>
-      </ul>
-    </nav>
-  </header>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Your Mental Health Matters</h1>
+        <p>Explore, express, and heal — all in one safe space.</p>
+        <a href="#" class="cta-button">Start Your Journey</a>
+      </div>
+    </section>
+    <div class="quotes">
+      Healing takes time, and asking for help is a courageous step.
+    </div>
+    <section class="hero" id="hero1">
+      <div class="hero-content">
+        <h1>Look For Mental Health Conditions</h1>
+        <p>There are no Mental Disorders, only Mental Conditions.</p>
+        <a href="{% url 'cond' %}" class="cta-button"
+          >Check Mental Health Conditions</a
+        >
+      </div>
+    </section>
+    <div class="quotes">
+      You are not a burden. You have a burden, which by definition is too heavy
+      to carry alone.
+    </div>
+    <section class="hero" id="hero2">
+      <div class="hero-content">
+        <h1>Chat with our PsychoEducation</h1>
+        <p>Explore, express, and heal — all in one safe space.</p>
+        <a href="{% url 'psychoedu' %}" class="cta-button"
+          >Chat with Psychobot</a
+        >
+      </div>
+    </section>
+    <div class="quotes">
+      Your illness does not define you. Your strength and courage does.
+    </div>
+    <section class="hero" id="hero3">
+      <div class="hero-content">
+        <h1>Talk with our Psychologists</h1>
+        <p>Qualified professional to help you.</p>
+        <a href="{% url 'appoi' %}" class="cta-button">Book an Appointment</a>
+      </div>
+    </section>
+    <div class="quotes">Feelings are just visitors. Let them come and go.</div>
+    <section class="hero" id="hero4">
+      <div class="hero-content">
+        <h1>Funzone to Calm Your Mind</h1>
+        <p>
+          Meditation, Games, Creativity and Nature are Sources of Refreshment.
+        </p>
+        <a href="{% url 'fun' %}" class="cta-button">Enter Funzone</a>
+      </div>
+    </section>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Your Mental Health Matters</h1>
-      <p>Explore, express, and heal — all in one safe space.</p>
-      <a href="#" class="cta-button">Start Your Journey</a>
-    </div>
-  </section>
-  <div class="quotes">Healing takes time, and asking for help is a courageous step.</div>
-  <section class="hero" id="hero1">
-    <div class="hero-content">
-      <h1>Look For Mental Health Conditions</h1>
-      <p>There are no Mental Disorders, only Mental Conditions.</p>
-      <a href="{% url 'cond' %}" class="cta-button">Check Mental Health Conditions</a>
-    </div>
-  </section>
-  <div class="quotes">You are not a burden. You have a burden, which by definition is too heavy to carry alone.</div>
-  <section class="hero" id="hero2">
-    <div class="hero-content">
-      <h1>Chat with our PsychoEducation</h1>
-      <p>Explore, express, and heal — all in one safe space.</p>
-      <a href="{% url 'psychoedu' %}" class="cta-button">Chat with Psychobot</a>
-    </div>
-  </section>
-  <div class="quotes">Your illness does not define you. Your strength and courage does.</div>
-  <section class="hero" id="hero3">
-    <div class="hero-content">
-      <h1>Talk with our Psychologists</h1>
-      <p>Qualified professional to help you.</p>
-      <a href="{% url 'appoi' %}" class="cta-button">Book an Appointment</a>
-    </div>
-  </section>
-  <div class="quotes">Feelings are just visitors. Let them come and go.</div>
-  <section class="hero" id="hero4">
-    <div class="hero-content">
-      <h1>Funzone to Calm Your Mind</h1>
-      <p>Meditation, Games, Creativity and Nature are Sources of Refreshment.</p>
-      <a href="{% url 'fun' %}" class="cta-button">Enter Funzone</a>
-    </div>
-  </section>
+    <footer>
+      <p>
+        © 2025 MindEase | For Support, Call: 1800-123-HELP | Designed By: Rudra,
+        Avi, Vishva, Manthan
+      </p>
+    </footer>
 
-  <footer>
-    <p>© 2025 MindEase | For Support, Call: 1800-123-HELP | Designed By: Rudra, Avi, Vishva, Manthan</p>
-  </footer>
-  
-  <script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
-  <script src="https://files.bpcontent.cloud/2025/04/24/05/20250424054554-VFKX9ELD.js"></script>
-</body>
+    <script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/04/24/05/20250424054554-VFKX9ELD.js"></script>
+  </body>
 </html>
