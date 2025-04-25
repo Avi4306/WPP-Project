@@ -18,7 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from MindEase import views
 
+# urlpatterns = from django.urls import path
+# from . import views
+# from django.contrib import admin
+
 urlpatterns = [
+    path('', views.index,name='index'),
     path('admin/', admin.site.urls),
     path('conditions/',views.conditions,name='cond'),
     path('appointment/', views.appointment,name='appoi'),
