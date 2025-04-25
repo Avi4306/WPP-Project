@@ -4,8 +4,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background-color: #f4f7fb;
   color: #333;
 }
@@ -29,7 +33,7 @@ nav {
   font-size: 1.8rem;
   font-weight: bold;
 }
-.logo a{
+.logo a {
   color: white;
   text-decoration: none;
 }
@@ -49,7 +53,8 @@ nav {
   align-items: center;
   justify-content: center;
   height: 85vh;
-  background: url('https://cdn.pixabay.com/photo/2022/07/15/18/27/mental-health-7323725_1280.png') no-repeat center center/cover;
+  background: url("https://cdn.pixabay.com/photo/2022/07/15/18/27/mental-health-7323725_1280.png")
+    no-repeat center center/cover;
   color: white;
   text-align: center;
   position: relative;
@@ -57,7 +62,7 @@ nav {
 }
 
 .hero::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -71,19 +76,23 @@ nav {
   z-index: 1;
 }
 #hero1 {
-  background: url('https://cdn.pixabay.com/photo/2022/07/22/02/58/resilience-7337258_1280.jpg') no-repeat center center/cover;
+  background: url("https://cdn.pixabay.com/photo/2022/07/22/02/58/resilience-7337258_1280.jpg")
+    no-repeat center center/cover;
 }
 
 #hero2 {
-  background: url('https://cdn.pixabay.com/photo/2022/08/17/20/00/psychotherapy-7393380_1280.png') no-repeat center center/cover;
+  background: url("https://cdn.pixabay.com/photo/2022/08/17/20/00/psychotherapy-7393380_1280.png")
+    no-repeat center center/cover;
 }
 
 #hero3 {
-  background: url('https://cdn.pixabay.com/photo/2023/01/14/11/24/counseling-7717987_1280.png') no-repeat center center/cover;
+  background: url("https://cdn.pixabay.com/photo/2023/01/14/11/24/counseling-7717987_1280.png")
+    no-repeat center center/cover;
 }
 
 #hero4 {
-  background: url('https://cdn.pixabay.com/photo/2022/10/18/11/02/woman-7529904_1280.png') no-repeat center center/cover;
+  background: url("https://cdn.pixabay.com/photo/2022/10/18/11/02/woman-7529904_1280.png")
+    no-repeat center center/cover;
 }
 .hero h1 {
   font-size: 2rem;
@@ -113,6 +122,7 @@ nav {
   margin-bottom: 300px;
   text-align: center;
 }
+/* Psychoeducation */
 /* PAGE TITLE */
 .page-title {
   scroll-padding-top: 80px;
@@ -121,10 +131,10 @@ nav {
   background-color: #e8efff;
 }
 .page-title h1 {
-  font-size: 1.5rem;
+  font-size: 2.4rem;
 }
 .page-title p {
-  font-size: 0.9rem;
+  font-size: 1.3rem;
 }
 
 /* INTERNAL NAV */
@@ -267,12 +277,12 @@ nav {
 }
 
 /* CHART CENTERING */
-.graph-wrapper{
+.graph-wrapper {
   display: flex;
   justify-content: center;
   padding: 1rem 0 2rem;
 }
-.graph-wrapper img{
+.graph-wrapper img {
   max-width: 100%;
   width: 500px;
   height: auto;
@@ -310,59 +320,6 @@ nav {
 .reference-item div {
   font-size: 1rem;
   line-height: 1.4;
-}
-
-/* CHATBOT */
-.chatbot-container {
-  max-width: 600px;
-  margin: 2rem auto;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-}
-.chatbox {
-  height: 300px;
-  overflow-y: auto;
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-}
-.message {
-  margin: 0.5rem 0;
-  padding: 0.75rem 1rem;
-  border-radius: 20px;
-  max-width: 80%;
-}
-.message.user {
-  background-color: #d1e7dd;
-  align-self: flex-end;
-  margin-left: auto;
-}
-.message.bot {
-  background-color: #e2e3e5;
-  align-self: flex-start;
-  margin-right: auto;
-}
-#chat-form {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-#user-input {
-  flex: 1;
-  padding: 0.75rem;
-  border-radius: 20px;
-  border: 1px solid #ccc;
-}
-#chat-form button {
-  padding: 0.75rem 1.2rem;
-  background-color: #4b6cb7;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
 }
 
 /* APPOINTMENT FORM */
@@ -418,6 +375,9 @@ nav {
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .fun-card:hover {
   transform: scale(1.03);
@@ -428,7 +388,7 @@ nav {
 }
 .fun-card a {
   display: inline-block;
-  margin-top: 1rem;
+  margin: 1rem 0.6rem;
   padding: 0.5rem 1rem;
   background-color: #4b6cb7;
   color: white;
@@ -445,5 +405,8 @@ footer {
   text-align: center;
   padding: 1rem;
   background-color: #eee;
-  font-size: 0.9rem;
+  font-size: 0.9rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
