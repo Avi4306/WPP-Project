@@ -5,7 +5,10 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt # type:ignore
 import pandas as pd
 import io
-import urllib, base64 
+import urllib, base64
+from MindEase.models import datas
+from django.core.mail import send_mail
+
 
 def index(request):
     return render(request, 'index.html')
@@ -14,29 +17,46 @@ def appointment(request):
     if request.method == "POST":
         try:
             name = request.POST.get("name")
-            data = request.POST.get("date")
+            date = request.POST.get("date")
             mail = request.POST.get('mail')
             time = request.POST.get('time')
             concern = request.POST.get('condition')
-
+            messages = f"Your AppointMent is ConForMed be Ready on {date} on time {time},Thankyou for visiting our Website." 
             # Put each field in a list for DataFrame
             df = pd.DataFrame({
                 'name': [name],
-                'date': [data],
+                'date': [date],
                 'mail': [mail],
                 'time': [time],
                 'concern': [concern]
             })
 
             df.to_csv("data.csv", mode='a', index=False, header=False)
-
+            
+            en=datas(name=name, email=mail, date=date, time=time, concern=concern)
+            en.save()
+            
+            send_mail(
+            subject='Appointment Confirmation',
+            message=messages,
+            from_email=f'{mail}',
+            recipient_list=[mail],
+            fail_silently=False,
+            )
             return render(request, "redirect.html")
+           
         except Exception as e:
             return HttpResponse(f'Error: {e}')
     else:
         return render(request, "appointment.html")
-def psychoeducation(request):
-    return render(request,'psychoeducation.html')
+def chatbot(request):
+    
+    if request.method=="POST":
+        user_input = request.POST.get("user_input")
+        
+        bot_response = f"hi: {user_input}"
+        return render(request, 'chatbot.html', {'bot_response': bot_response})
+    return render(request, 'chatbot.html')
 
 def psedu(request):
     conditions = ['Depression', 'Anxiety', 'Bipolar', 'Schizophrenia', 'PTSD']
@@ -53,11 +73,6 @@ def psedu(request):
     image_data = base64.b64encode(buf.read()).decode('utf-8')
     graph = f'data:image/png;base64,{image_data}'
     return render(request, 'psychoeducation.html',{'graph':graph})
-def conditions(request):
-    return render(request,'conditions.html')
-
-def index(request):
-    return render(request,'index.html')
 
 def funzone(request):
     return render(request, 'funzone.html')
