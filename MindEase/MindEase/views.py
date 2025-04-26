@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import matplotlib # type:ignore
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt # type:ignore
@@ -9,6 +9,35 @@ import urllib, base64
 from MindEase.models import datas
 from django.core.mail import send_mail
 
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login, logout, authenticate
+
+def signupPage(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
+
+def loginPage(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form})
+
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('login')
 
 def index(request):
     return render(request, 'index.html')
@@ -49,16 +78,9 @@ def appointment(request):
             return HttpResponse(f'Error: {e}')
     else:
         return render(request, "appointment.html")
-def chatbot(request):
-    
-    if request.method=="POST":
-        user_input = request.POST.get("user_input")
-        
-        bot_response = f"hi: {user_input}"
-        return render(request, 'chatbot.html', {'bot_response': bot_response})
-    return render(request, 'chatbot.html')
 
-def psedu(request):
+
+def psychoeducation(request):
     conditions = ['Depression', 'Anxiety', 'Bipolar', 'Schizophrenia', 'PTSD']
     people = [264, 284, 56, 24, 70]
     plt.bar(conditions,people,color="lightblue")
@@ -74,6 +96,9 @@ def psedu(request):
     graph = f'data:image/png;base64,{image_data}'
     return render(request, 'psychoeducation.html',{'graph':graph})
 
+def conditions(request):
+    return render(request, 'conditions.html')
+
 def funzone(request):
     return render(request, 'funzone.html')
 
@@ -82,3 +107,8 @@ def resources(request):
 
 def redirect(request):
     return render(request, 'redirect.html')
+
+def terms(request):
+    return render(request, 'terms_and_conditions.html')
+def privacy_policy(request):
+    return render(request, 'privacy_policy.html')

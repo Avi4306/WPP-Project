@@ -10,19 +10,42 @@
   <body>
     <header>
       <nav>
-        <div class="logo"><a href="{% url 'index' %}">MindEase</a></div>
+        <div class="logo"><a href="{% url 'home' %}">MindEase</a></div>
         <ul class="nav-links">
-          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="#hero">Home</a></li>
           <li><a href="{% url 'cond' %}">Conditions</a></li>
           <li><a href="{% url 'psychoedu' %}">PsychoEducation</a></li>
           <li><a href="{% url 'appoi' %}">Appointment</a></li>
           <li><a href="{% url 'fun' %}">Fun Zone</a></li>
           <li><a href="https://www.nami.org/" target="blank">Resources</a></li>
+          <li>
+            {% if user.is_authenticated %}
+            <img
+              src="{{ user.profile.image.url }}"
+              alt="Profile Picture"
+              width="30"
+              height="30"
+              style="border-radius: 50%"
+            />
+            <form
+              method="post"
+              action="{% url 'logout' %}"
+              style="display: inline"
+            >
+              {% csrf_token %}
+              <button type="submit">Logout</button>
+            </form>
+            {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            |
+            <a href="{% url 'signup' %}">Sign Up</a>
+            {% endif %}
+          </li>
         </ul>
       </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="hero">
       <div class="hero-content">
         <h1>Your Mental Health Matters</h1>
         <p>Explore, express, and heal — all in one safe space.</p>

@@ -16,7 +16,7 @@
           <li><a href="{% url 'cond' %}">Conditions</a></li>
           <li><a href="{% url 'psychoedu' %}">PsychoEducation</a></li>
           <li><a href="{% url 'appoi' %}">Appointment</a></li>
-          <li><a href="#page-t">Fun Zone</a></li>
+          <li><a href="{% url 'fun' %}">Fun Zone</a></li>
           <li>
             {% if user.is_authenticated %}
             <img
@@ -44,35 +44,21 @@
       </nav>
     </header>
 
-    <section class="page-title" id="#page-t">
-      <h1>Fun Zone 🎉</h1>
-      <p>Take a break, relax, and enjoy some stress-busting activities!</p>
-    </section>
+    <form method="post">
+      {% csrf_token %}
+      <h3>Signup Here</h3>
+      
+      {{ form.as_p }}
+      <div class="terms-container">
+        <label>
+          <input type="checkbox" name="agree_terms" required />
+          I agree to the <a href="{% url 'terms' %}" target="_blank">Terms and Conditions</a>.
+        </label>
+      </div>
+      <button type="submit">Sign Up</button>
 
-    <section class="funzone-grid">
-      <div class="fun-card">
-        <h2>🎈 Breathing Exercise</h2>
-        <p>Try a calming 4-7-8 breathing technique.</p>
-        <a href="https://www.youtube.com/watch?v=YRPh_GaiL8s" target="_blank"
-          >Try Now</a
-        >
-      </div>
-      <div class="fun-card">
-        <h2>🧩 Puzzle Game</h2>
-        <p>Play a simple relaxing puzzle to refresh your mind.</p>
-        <a href="https://slowroads.io/" target="_blank">Play</a>
-      </div>
-      <div class="fun-card">
-        <h2>🎨 Doodle Pad</h2>
-        <p>Draw anything and let your creativity flow.</p>
-        <a href="https://sketch.io/sketchpad/" target="_blank">Start Drawing</a>
-      </div>
-      <div class="fun-card">
-        <h2>🌳 Nature Sounds</h2>
-        <p>Listen to peaceful nature sounds and unwind.</p>
-        <a href="https://mynoise.net/" target="_blank">Listen</a>
-      </div>
-    </section>
+      <a href="{% url 'login' %}">Already have an account? Login</a>
+    </form>
 
     <footer>
       <p>© 2025 MindEase | For Support, Call: 1800-123-HELP</p>

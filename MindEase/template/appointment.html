@@ -1,61 +1,86 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Appointment - MindEase</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}" />
-    <script>
-      function gotonextpage() {
-        window.location.href = "redirect/";
-      }
-    </script>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <div class="logo">MindEase</div>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Appointment - MindEase</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  <script>
+      function gotonextpage()
+        {
+            window.location.href="redirect/"
+        }
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="nav-links">
+      <div class="logo">MindEase</div>
+      <li>
+        {% if user.is_authenticated %}
+        <img
+          src="{{ user.profile.image.url }}"
+          alt="Profile Picture"
+          width="30"
+          height="30"
+          style="border-radius: 50%"
+        />
+        <form
+          method="post"
+          action="{% url 'logout' %}"
+          style="display: inline"
+        >
+          {% csrf_token %}
+          <button type="submit">Logout</button>
+        </form>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        |
+        <a href="{% url 'signup' %}">Sign Up</a>
+        {% endif %}
+      </li>
+    </nav>
+  </header>
 
-    <section class="page-title">
-      <h1>Book an Appointment</h1>
-      <p>Get professional help from licensed mental health experts.</p>
-    </section>
+  <section class="page-title">
+    <h1>Book an Appointment</h1>
+    <p>Get professional help from licensed mental health experts.</p>
+  </section>
 
-    <section class="appointment-form">
-      <form>
-        <label for="name">Full Name</label>
-        <input type="text" id="name" required />
+  <section class="appointment-form">
+    <form>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required />
 
-        <label for="email">Email Address</label>
-        <input type="email" id="email" required />
+      <label for="cont-num">Contact Number</label>
+      <input type="tel" id="cont-num" required />
 
-        <label for="condition">Concern</label>
-        <select id="condition" required>
-          <option value="">--Select--</option>
-          <option value="depression">Depression</option>
-          <option value="anxiety">Anxiety</option>
-          <option value="ptsd">PTSD</option>
-          <option value="ocd">OCD</option>
-          <option value="bipolar">Bipolar Disorder</option>
-        </select>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" required />
 
-        <label for="date">Preferred Date</label>
-        <input type="date" id="date" required />
+      <label for="condition">Concern</label>
+      <select id="condition" required>
+        <option value="">--Select--</option>
+        <option value="depression">Depression</option>
+        <option value="anxiety">Anxiety</option>
+        <option value="ptsd">PTSD</option>
+        <option value="ocd">OCD</option>
+        <option value="bipolar">Bipolar Disorder</option>
+      </select>
 
-        <label for="time">Preferred Time</label>
-        <input type="time" id="time" required />
+      <label for="date">Preferred Date</label>
+      <input type="date" id="date" required />
 
-        <button type="submit" onclick="gotonextpage()">Book Appointment</button>
-      </form>
-    </section>
+      <label for="time">Preferred Time</label>
+      <input type="time" id="time" required />
 
-    <footer>
-      <p>© 2025 MindEase | For Support, Call: 1800-123-HELP</p>
-    </footer>
-    <script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2025/04/24/05/20250424054554-VFKX9ELD.js"></script>
-  </body>
+      <button type="submit" onclick="gotonextpage()">Book Appointment</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 MindEase | For Support, Call: 1800-123-HELP</p>
+  </footer>
+</body>
 </html>

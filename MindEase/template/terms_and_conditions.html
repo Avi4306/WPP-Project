@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms and Conditions - MindEase</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo"><a href="{% url 'home' %}">MindEase</a></div>
+        <ul class="nav-links">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'cond' %}">Conditions</a></li>
+          <li><a href="{% url 'psychoedu' %}">PsychoEducation</a></li>
+          <li><a href="{% url 'appoi' %}">Appointment</a></li>
+          <li><a href="{% url 'fun' %}">Fun Zone</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="terms">
+      <h1>Terms and Conditions</h1>
+      <p>Last updated: [Date]</p>
+      
+      <h2>Introduction</h2>
+      <p>Welcome to MindEase! These Terms and Conditions govern your use of our website, products, and services.</p>
+
+      <h2>1. Acceptance of Terms</h2>
+      <p>By accessing or using the MindEase website, you agree to comply with and be bound by these Terms and Conditions.</p>
+
+      <h2>2. User Responsibilities</h2>
+      <p>You are responsible for ensuring that your use of the site complies with all applicable laws.</p>
+
+      <h2>3. Privacy Policy</h2>
+      <p>Your use of the website is also governed by our Privacy Policy, which you can review here: <a href="{% url 'privacy_policy' %}">Privacy Policy</a>.</p>
+
+      <h2>4. Modifications</h2>
+      <p>We reserve the right to update or modify these Terms at any time. Please check back periodically for updates.</p>
+
+      <h2>5. Contact Information</h2>
+      <p>If you have any questions about these Terms and Conditions, please contact us at: support@mindease.com.</p>
+    </div>
+
+    <footer>
+      <p>© 2025 MindEase | For Support, Call: 1800-123-HELP</p>
+    </footer>
+  </body>
+</html>

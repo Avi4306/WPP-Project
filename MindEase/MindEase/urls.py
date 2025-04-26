@@ -17,18 +17,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from MindEase import views
-
 # urlpatterns = from django.urls import path
 # from . import views
 # from django.contrib import admin
 
 urlpatterns = [
-    path('', views.index,name='index'),
+    path('', views.index,name='home'),
     path('admin/', admin.site.urls),
     path('conditions/',views.conditions,name='cond'),
     path('appointment/', views.appointment,name='appoi'),
     path('funzone/', views.funzone,name='fun'),
     path('psychoeducation/', views.psychoeducation,name='psychoedu'),
-    path('', views.index,name='index'),
     path('appointment/redirect/', views.redirect,name='redirect'),
+    path('resources', views.resources,name='resources'),
+    path('signup/', views.signupPage, name='signup'),
+    path('login/', views.loginPage, name='login'),
+    path('terms-and-conditions/', views.terms, name='terms'),
+    path('terms-and-conditions/privacy-policy/', views.privacy_policy, name='privacy_policy'),
 ]
