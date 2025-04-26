@@ -19,18 +19,7 @@
       <div class="logo">MindEase</div>
       <li>
         {% if user.is_authenticated %}
-        <img
-          src="{{ user.profile.image.url }}"
-          alt="Profile Picture"
-          width="30"
-          height="30"
-          style="border-radius: 50%"
-        />
-        <form
-          method="post"
-          action="{% url 'logout' %}"
-          style="display: inline"
-        >
+        <form method="post" action="{% url 'logout' %}">
           {% csrf_token %}
           <button type="submit">Logout</button>
         </form>

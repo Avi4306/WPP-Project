@@ -34,7 +34,7 @@ def loginPage(request):
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
 
-def logout_view(request):
+def logout(request):
     if request.method == 'POST':
         logout(request)
         return redirect('login')
