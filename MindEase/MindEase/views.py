@@ -117,8 +117,6 @@ def psychoeducation(request):
     graph = f'data:image/png;base64,{image_data}'
     return render(request, 'psychoeducation.html',{'graph':graph})
 
-def conditions(request):
-    return render(request, 'conditions.html')
 
 def funzone(request):
     return render(request, 'funzone.html')

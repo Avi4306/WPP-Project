@@ -16,7 +16,7 @@
 <body>
   <header>
     <nav class="nav-links">
-      <div class="logo">MindEase</div>
+      <div class="logo"><a href="{% url 'home' %}">MindEase</a></div>
       <li>
         {% if user.is_authenticated %}
         <form method="post" action="{% url 'logout' %}">

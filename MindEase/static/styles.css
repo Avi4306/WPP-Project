@@ -4,6 +4,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+html{
+  scroll-behavior: smooth;
+}
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f4f7fb;
@@ -29,13 +32,18 @@ nav {
   font-size: 1.8rem;
   font-weight: bold;
 }
+.logo a{
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1.5rem;
 }
 
-.nav-links li a {
+.nav-links li a{
   color: white;
   text-decoration: none;
   font-weight: 500;
@@ -130,7 +138,6 @@ nav {
   color: #888;
 }
 .hero-banner {
-  scroll-padding-top: 150px;
   padding: calc(15rem + 80px) 2rem 15rem; /* 80px extra for header */
   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('hero-banner1.jpg') center/cover no-repeat;
   color: white;
@@ -353,58 +360,6 @@ nav {
  text-decoration: none;
  color: #384c89;
 }
-/* CHATBOT */
-.chatbot-container {
-  max-width: 600px;
-  margin: 2rem auto;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-}
-.chatbox {
-  height: 300px;
-  overflow-y: auto;
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-}
-.message {
-  margin: 0.5rem 0;
-  padding: 0.75rem 1rem;
-  border-radius: 20px;
-  max-width: 80%;
-}
-.message.user {
-  background-color: #d1e7dd;
-  align-self: flex-end;
-  margin-left: auto;
-}
-.message.bot {
-  background-color: #e2e3e5;
-  align-self: flex-start;
-  margin-right: auto;
-}
-#chat-form {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-#user-input {
-  flex: 1;
-  padding: 0.75rem;
-  border-radius: 20px;
-  border: 1px solid #ccc;
-}
-#chat-form button {
-  padding: 0.75rem 1.2rem;
-  background-color: #4b6cb7;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-}
 
 /* APPOINTMENT FORM */
 .appointment-form {
@@ -564,4 +519,169 @@ footer {
 .btn:hover {
   background-color: #607cbd;
   transform: translateY(-2px); /* slight button pop on hover */
+}
+
+#logout-button {
+  background-color: #182848;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+/* Signup Page */
+.l_and_s-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin-inline: auto;
+  margin-block: 100px 2rem;
+  color: #182848; /* Deep blue for text */
+}
+
+.l_and_s-form h3 {
+  text-align: center;
+  color: #4b6cb7;
+  margin-bottom: 1.5rem;
+}
+
+.l_and_s-form input[type="text"],
+.l_and_s-form input[type="email"],
+.l_and_s-form input[type="password"]{
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.l_and_s-form button[type="submit"] {
+  width: 100%;
+  background: linear-gradient(to right, #4b6cb7, #182848);
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.l_and_s-form input[type="checkbox"]{
+  margin-top: 20px;
+}
+.l_and_s-form button[type="submit"]:hover {
+  background: linear-gradient(to right, #384c89, #0b132b);
+}
+
+.terms-container {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.terms-container a {
+  color: #4b6cb7;
+  text-decoration: underline;
+}
+.l_and_s-form a {
+  text-align: center;
+  color: #4b6cb7;
+  text-decoration: none;
+}
+#signup-login{
+  color: #4b6cb7;
+  text-decoration: none;
+  margin-inline: 3.5rem;
+}
+
+.l_and_s-form a:hover {
+  text-decoration: underline;
+}
+/* Terms and conditions */
+.terms {
+  max-width: 800px;
+  margin: 150px auto 2rem; /* Add top margin to clear fixed header */
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  color: #182848;
+  line-height: 1.6;
+}
+
+.terms h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #4b6cb7;
+  text-align: center;
+}
+
+.terms p {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.terms h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  color: #4b6cb7;
+  border-left: 4px solid #4b6cb7;
+  padding-left: 0.5rem;
+}
+
+.terms a {
+  color: #4b6cb7;
+  text-decoration: underline;
+}
+
+.terms a:hover {
+  color: #182848;
+}
+/* Privacy Policy */
+.privacy-policy-container {
+  max-width: 800px;
+  margin: 150px auto 2rem; /* Add top margin to clear fixed header */
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  color: #182848;
+  line-height: 1.6;
+}
+
+.privacy-policy-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #4b6cb7;
+  text-align: center;
+}
+
+.privacy-policy-container p {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.privacy-policy-container h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  color: #4b6cb7;
+  border-left: 4px solid #4b6cb7;
+  padding-left: 0.5rem;
+}
+
+.privacy-policy-container a {
+  color: #4b6cb7;
+  text-decoration: underline;
+}
+
+.privacy-policy-container a:hover {
+  color: #182848;
+}
+.privacy-policy-container ul{
+  padding-left: 3%;
 }

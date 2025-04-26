@@ -13,22 +13,22 @@
         <div class="logo"><a href="{% url 'home' %}">MindEase</a></div>
         <ul class="nav-links">
           <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'cond' %}">Conditions</a></li>
-          <li><a href="{% url 'psychoedu' %}">PsychoEducation</a></li>
-          <li><a href="{% url 'appoi' %}">Appointment</a></li>
-          <li><a href="#page-t">Fun Zone</a></li>
-          <li>
-            {% if user.is_authenticated %}
-            <form method="post" action="{% url 'logout' %}">
-              {% csrf_token %}
-              <button type="submit" id="logout-button">Logout</button>
-            </form>
-            {% else %}
-            <a href="{% url 'login' %}">Login</a>
-            |
-            <a href="{% url 'signup' %}">Sign Up</a>
-            {% endif %}
-          </li>
+        <li><a href="{% url 'psychoedu' %}">Psychoeducation</a></li>
+        <li><a href="{% url 'appoi' %}">Appointment</a></li>
+        <li><a href="{% url 'fun' %}">Fun Zone</a></li>
+        <li><a href="{% url 'resources' %}">Resources</a></li>
+        <li>
+          {% if user.is_authenticated %}
+          <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" id="logout-button">Logout</button>
+          </form>
+          {% else %}
+          <a href="{% url 'login' %}">Login</a>
+          |
+          <a href="{% url 'signup' %}">Sign Up</a>
+          {% endif %}
+        </li>
         </ul>
       </nav>
     </header>
@@ -39,24 +39,24 @@
     </section>
 
     <section class="funzone-grid">
-      <div class="fun-card">
+      <div class="fun-card breathing-exercise">
         <h2>🎈 Breathing Exercise</h2>
         <p>Try a calming 4-7-8 breathing technique.</p>
         <a href="https://www.youtube.com/watch?v=YRPh_GaiL8s" target="_blank"
           >Try Now</a
         >
       </div>
-      <div class="fun-card">
-        <h2>🧩 Puzzle Game</h2>
+      <div class="fun-card puzzle-game">
+        <h2>🧩 Puzzle Games</h2>
         <p>Play a simple relaxing puzzle to refresh your mind.</p>
-        <a href="https://slowroads.io/" target="_blank">Play</a>
+        <a href="https://www.mathsisfun.com/games/puzzle-games.html" target="_blank">Play</a>
       </div>
-      <div class="fun-card">
+      <div class="fun-card doodle-pad">
         <h2>🎨 Doodle Pad</h2>
         <p>Draw anything and let your creativity flow.</p>
         <a href="https://sketch.io/sketchpad/" target="_blank">Start Drawing</a>
       </div>
-      <div class="fun-card">
+      <div class="fun-card nature-sounds">
         <h2>🌳 Nature Sounds</h2>
         <p>Listen to peaceful nature sounds and unwind.</p>
         <a href="https://mynoise.net/" target="_blank">Listen</a>

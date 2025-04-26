@@ -24,7 +24,6 @@ from MindEase import views
 urlpatterns = [
     path('', views.index,name='home'),
     path('admin/', admin.site.urls),
-    path('conditions/',views.conditions,name='cond'),
     path('appointment/', views.appointment,name='appoi'),
     path('funzone/', views.funzone,name='fun'),
     path('psychoeducation/', views.psychoeducation,name='psychoedu'),

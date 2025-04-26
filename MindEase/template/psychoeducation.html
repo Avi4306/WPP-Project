@@ -13,22 +13,22 @@
         <div class="logo"><a href="{% url 'home' %}">MindEase</a></div>
         <ul class="nav-links">
           <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'cond' %}">Conditions</a></li>
-          <li><a href="#page-t">PsychoEducation</a></li>
-          <li><a href="{% url 'appoi' %}">Appointment</a></li>
-          <li><a href="{% url 'fun' %}">Fun Zone</a></li>
-          <li>
-            {% if user.is_authenticated %}
-            <form method="post" action="{% url 'logout' %}">
-              {% csrf_token %}
-              <button type="submit" id="logout-button">Logout</button>
-            </form>
-            {% else %}
-            <a href="{% url 'login' %}">Login</a>
-            |
-            <a href="{% url 'signup' %}">Sign Up</a>
-            {% endif %}
-          </li>
+        <li><a href="{% url 'psychoedu' %}">Psychoeducation</a></li>
+        <li><a href="{% url 'appoi' %}">Appointment</a></li>
+        <li><a href="{% url 'fun' %}">Fun Zone</a></li>
+        <li><a href="{% url 'resources' %}">Resources</a></li>
+        <li>
+          {% if user.is_authenticated %}
+          <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" id="logout-button">Logout</button>
+          </form>
+          {% else %}
+          <a href="{% url 'login' %}">Login</a>
+          |
+          <a href="{% url 'signup' %}">Sign Up</a>
+          {% endif %}
+        </li>
         </ul>
       </nav>
     </header>
