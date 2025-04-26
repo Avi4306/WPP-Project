@@ -12,6 +12,7 @@ from django.core.mail import send_mail
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from .forms import CustomUserCreationForm
+from random import choice
 def signupPage(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -50,7 +51,8 @@ def appointment(request):
             mail = request.POST.get('mail')
             time = request.POST.get('time')
             concern = request.POST.get('condition')
-            messages = f"Your AppointMent is ConForMed be Ready on {date} on time {time},Thankyou for visiting our Website." 
+            psycologists = ["Avi Patel", "Rudra Trivedi", "Manthan Ladda", "Vishva Trivedi"]
+            messages = f"Hi {request.user.username},\n\nYour appointment has been booked successfully!\n\nDate: {date}\nTime: {time}\nPsychologist: {choice(psycologists)}\n\nThank you for trusting MindEase." 
             # Put each field in a list for DataFrame
             df = pd.DataFrame({
                 'name': [name],
@@ -66,7 +68,7 @@ def appointment(request):
             en.save()
             
             send_mail(
-            subject='Appointment Confirmation',
+            subject='Appointment Confirmed - MindEase',
             message=messages,
             from_email=f'{mail}',
             recipient_list=[mail],
