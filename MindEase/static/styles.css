@@ -145,10 +145,10 @@ nav {
   background-color: #e8efff;
 }
 .page-title h1 {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 .page-title p {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 /* INTERNAL NAV */
@@ -314,7 +314,7 @@ nav {
 .section h2 {
   text-align: left;
   color: #4b6cb7;
-  font-size: 1.75rem;
+  font-size: 1.7rem;
   margin-bottom: 1.5rem;
   border-bottom: 2px solid #e0e0e0;
   padding-bottom: 0.5rem;
@@ -323,7 +323,7 @@ nav {
 /* New style for wrapping all resource items in a nice box */
 .resource-box {
   background: #f9f9f9;
-  padding: 1.5rem;
+  padding: 1.75rem;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   margin-bottom: 2rem;
@@ -338,15 +338,15 @@ nav {
 }
 
 .reference-item img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .reference-item div {
-  font-size: 1rem;
+  font-size: 1.5rem;
   line-height: 1.4;
 }
 .reference-item div a {
