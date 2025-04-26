@@ -6,23 +6,25 @@ import matplotlib.pyplot as plt # type:ignore
 import pandas as pd
 import io
 import urllib, base64
+from django.core.mail import send_mail
 from MindEase.models import datas
-from django.core.mail import EmailMessage
-
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 from .forms import CustomUserCreationForm
 from random import choice
-import imaplib
-import email
-import time
-from MindEase.settings import EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
+from django.contrib.auth.decorators import login_required
 def signupPage(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
+            subject = 'Welcome to MindEase!'
+            message = f"Hi {user.username},\n\nThank you for signing up with MindEase.\nWe are excited to be a part of your mental health journey!\n\nExplore, express, and heal 💬🧠"
+            from_email = 'MindEase'
+            to_list = [user.email]
+
+            send_mail(subject, message, from_email, to_list, fail_silently=False)
             return redirect('home')
     else:
         form = CustomUserCreationForm()
@@ -47,60 +49,41 @@ def logout_user(request):
 def index(request):
     return render(request, 'index.html')
 
+@login_required(login_url='login')  # Redirects to login page if not logged in
 def appointment(request):
     if request.method == "POST":
-        try:
-            name = request.POST.get("name")
-            date = request.POST.get("date")
-            mail = request.POST.get('mail')
-            time_slot = request.POST.get('time')
-            concern = request.POST.get('condition')
-            psycologists = ["Avi Patel", "Rudra Trivedi", "Manthan Ladda", "Vishva Trivedi"]
-            message_body = f"Hi {request.user.username},\n\nYour appointment has been booked successfully!\n\nDate: {date}\nTime: {time_slot}\nPsychologist: {choice(psycologists)}\n\nWe make sure you have good experience\n\nThank you for visiting our website."
-        
-            # Save data to CSV
-            df = pd.DataFrame({
-                'name': [name],
-                'date': [date],
-                'mail': [mail],
-                'time': [time_slot],
-                'concern': [concern],
-            })
-            df.to_csv("data.csv", mode='a', index=False, header=False)
+            try:
+                name = request.POST.get("name")
+                date = request.POST.get("date")
+                mail = request.user.email
+                contact = request.POST.get("contact")
+                time_slot = request.POST.get('time')
+                concern = request.POST.get('condition')
+                psycologists = ["Avi Patel", "Rudra Trivedi", "Manthan Ladda", "Vishva Trivedi"]
+                message_body = f"Hi {request.user.username},\n\nYour appointment has been booked successfully!\n\nDate: {date}\nTime: {time_slot}\nPsychologist: {choice(psycologists)}\n\nWe make sure you have good experience\n\nThank you for visiting our website."
+                subject = "Appointment Successfully Booked"
+                # Save data to CSV
+                df = pd.DataFrame({
+                    'name': [name],
+                    'date': [date],
+                    'mail': [mail],
+                    'contact': [contact],
+                    'time': [time_slot],
+                    'concern': [concern],
+                })
+                df.to_csv("data.csv", mode='a', index=False, header=False)
 
-            # Save to database
-            en = datas(name=name, email=mail, date=date, time=time_slot, concern=concern)
-            en.save()
-            email_message = EmailMessage(
-                subject='Appointment Confirmed - MindEase',
-                body=message_body,
-                from_email=EMAIL_HOST_USER,
-                to=[mail],
-            )
-            email_message.send()
-            # Append email to 'Sent' folder via IMAP
-            msg = email.message.EmailMessage()
-            msg['Subject'] = 'Appointment Confirmed - MindEase'
-            msg['From'] = EMAIL_HOST_USER
-            msg['To'] = mail
-            msg.set_content(message_body)
+                # Save to database
+                en = datas(name=name, email=mail, contact=contact, date=date, time=time_slot, concern=concern)
+                en.save()
+                from_email = 'mindease20170604@gmail.com'
+                send_mail(subject, message_body, from_email, mail, fail_silently=False)
+                return redirect('redirect')
 
-            imap_server = 'imap.gmail.com'
-            imap_user = EMAIL_HOST_USER
-            imap_password = EMAIL_HOST_PASSWORD  # Ensure this is securely stored
-
-            with imaplib.IMAP4_SSL(imap_server) as imap:
-                imap.login(imap_user, imap_password)
-                imap.append('"[Gmail]/Sent Mail"', '', imaplib.Time2Internaldate(time.time()), msg.as_bytes())
-                imap.logout()
-
-            return render(request, "redirect.html")
-
-        except Exception as e:
-            return HttpResponse(f'Error: {e}')
+            except Exception as e:
+                return HttpResponse(f'Error: {e}')
     else:
         return render(request, "appointment.html")
-
 def psychoeducation(request):
     conditions = ['Depression', 'Anxiety', 'Bipolar', 'Schizophrenia', 'PTSD']
     people = [264, 284, 56, 24, 70]
