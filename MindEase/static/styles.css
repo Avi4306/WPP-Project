@@ -4,14 +4,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-html {
-  scroll-behavior: smooth;
-}
 body {
-  font-family: "Segoe UI", sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   background-color: #f4f7fb;
   color: #333;
-  padding-top: 70px;
 }
 
 /* HEADER & NAV */
@@ -22,8 +18,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10000;
 }
 nav {
   display: flex;
@@ -34,96 +29,114 @@ nav {
   font-size: 1.8rem;
   font-weight: bold;
 }
-.logo a {
-  color: white;
-  text-decoration: none;
-}
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1.5rem;
 }
 
-.nav-links a {
+.nav-links li a {
   color: white;
   text-decoration: none;
   font-weight: 500;
 }
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 85vh;
-  background: url("https://cdn.pixabay.com/photo/2022/07/15/18/27/mental-health-7323725_1280.png")
-    no-repeat center center/cover;
-  color: white;
-  text-align: center;
-  position: relative;
-  margin-bottom: 300px;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-}
 
 .hero-content {
-  position: relative;
-  z-index: 1;
-}
-#hero1 {
-  background: url("https://cdn.pixabay.com/photo/2022/07/22/02/58/resilience-7337258_1280.jpg")
-    no-repeat center center/cover;
+  text-align: left; /* Shift all text to left */
+  max-width: 600px; /* Optional: Limit width to look nice */
+  margin-left: 2rem; /* Push a little away from left edge */
+  padding-top: 2rem;
 }
 
-#hero2 {
-  background: url("https://cdn.pixabay.com/photo/2022/08/17/20/00/psychotherapy-7393380_1280.png")
-    no-repeat center center/cover;
-}
-
-#hero3 {
-  background: url("https://cdn.pixabay.com/photo/2023/01/14/11/24/counseling-7717987_1280.png")
-    no-repeat center center/cover;
-}
-
-#hero4 {
-  background: url("https://cdn.pixabay.com/photo/2022/10/18/11/02/woman-7529904_1280.png")
-    no-repeat center center/cover;
-}
-.hero h1 {
-  font-size: 2rem;
+.hero-content h1 {
+  font-size: 3rem;
   margin-bottom: 1rem;
 }
 
-.hero p {
+.hero-content p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
 }
+
 .cta-button {
-  padding: 0.75rem 1.5rem;
-  background-color: #ff7e5f;
-  color: white;
+  display: inline-block; /* Important: button behaves like a block */
+  background: #f0a500;
+  color: black;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
   text-decoration: none;
-  border-radius: 25px;
   font-weight: bold;
-  transition: background 0.3s ease;
 }
 
 .cta-button:hover {
-  background-color: #feb47b;
+  background: #ffcc00;
 }
-.quotes {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 300px;
+
+
+/* Panel Section */
+.panel-section {
+  background: #f7f7f7;
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.panel {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect on entire panel */
+.panel:hover {
+  transform: translateY(-10px); /* Slight lift */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+}
+
+.panel h2 {
+  color: #0b132b;
+  margin-bottom: 1rem;
+}
+
+.panel p {
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.panel-button {
+  display: inline-block;
+  background: #0b132b;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease; /* Smooth background color change */
+}
+
+/* Hover effect on button */
+.panel-button:hover {
+  background: #384c89;
+}
+
+
+.quote {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: #888;
+}
+.hero-banner {
+  scroll-padding-top: 150px;
+  padding: calc(15rem + 80px) 2rem 15rem; /* 80px extra for header */
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('hero-banner1.jpg') center/cover no-repeat;
+  color: white;
   text-align: center;
 }
-/* Psychoeducation */
+
 /* PAGE TITLE */
 .page-title {
   scroll-padding-top: 80px;
@@ -132,10 +145,10 @@ nav {
   background-color: #e8efff;
 }
 .page-title h1 {
-  font-size: 2.4rem;
+  font-size: 1.5rem;
 }
 .page-title p {
-  font-size: 1.3rem;
+  font-size: 0.9rem;
 }
 
 /* INTERNAL NAV */
@@ -229,7 +242,7 @@ nav {
 .learn-more {
   align-self: center;
   padding: 0.5rem 1.25rem;
-  background-color: #ff7e5f;
+  background-color: #0b132b;
   color: white;
   border-radius: 25px;
   font-size: 0.9rem;
@@ -237,7 +250,7 @@ nav {
   transition: background-color 0.3s ease;
 }
 .learn-more:hover {
-  background-color: #feb47b;
+  background-color: #384c89;
 }
 .conditions:hover {
   transform: translateY(-5px) scale(1.02);
@@ -278,12 +291,12 @@ nav {
 }
 
 /* CHART CENTERING */
-.graph-wrapper {
+.graph-wrapper{
   display: flex;
   justify-content: center;
   padding: 1rem 0 2rem;
 }
-.graph-wrapper img {
+.graph-wrapper img{
   max-width: 100%;
   width: 500px;
   height: auto;
@@ -295,8 +308,9 @@ nav {
 .section {
   padding: 2rem 1rem;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 2rem auto;
 }
+
 .section h2 {
   text-align: left;
   color: #4b6cb7;
@@ -305,12 +319,24 @@ nav {
   border-bottom: 2px solid #e0e0e0;
   padding-bottom: 0.5rem;
 }
+
+/* New style for wrapping all resource items in a nice box */
+.resource-box {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+/* Existing reference item style */
 .reference-item {
   display: flex;
   gap: 1rem;
   margin-bottom: 1.5rem;
   align-items: flex-start;
 }
+
 .reference-item img {
   width: 80px;
   height: 80px;
@@ -318,9 +344,66 @@ nav {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
 .reference-item div {
   font-size: 1rem;
   line-height: 1.4;
+}
+.reference-item div a {
+ text-decoration: none;
+ color: #384c89;
+}
+/* CHATBOT */
+.chatbot-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+.chatbox {
+  height: 300px;
+  overflow-y: auto;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+.message {
+  margin: 0.5rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  max-width: 80%;
+}
+.message.user {
+  background-color: #d1e7dd;
+  align-self: flex-end;
+  margin-left: auto;
+}
+.message.bot {
+  background-color: #e2e3e5;
+  align-self: flex-start;
+  margin-right: auto;
+}
+#chat-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+#user-input {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+#chat-form button {
+  padding: 0.75rem 1.2rem;
+  background-color: #4b6cb7;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 /* APPOINTMENT FORM */
@@ -328,6 +411,7 @@ nav {
   max-width: 500px;
   margin: 2rem auto;
   background-color: #fff;
+  padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -363,41 +447,78 @@ nav {
 
 /* FUN ZONE */
 .funzone-grid {
+  background: rgba(0, 0, 0, 0.03);
+  background-color: white;
+  padding: 4rem 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
 }
+
 .fun-card {
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2rem;
+  border-radius: 15px;
+  height: 300px;
+  color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
 }
-.fun-card:hover {
-  transform: scale(1.03);
+
+.fun-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* dark overlay for better text visibility */
+  z-index: 0;
+  border-radius: 15px;
 }
-.fun-card h2 {
-  color: #4b6cb7;
-  margin-bottom: 0.5rem;
-}
+
+.fun-card h2, 
+.fun-card p, 
 .fun-card a {
-  display: inline-block;
-  margin: 1rem 0.6rem;
-  padding: 0.5rem 1rem;
-  background-color: #4b6cb7;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
+
+.fun-card a {
+  margin-top: 1rem;
+  background: #f0a500;
+  text-align: center;
+  color: black;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+}
+
 .fun-card a:hover {
-  background-color: #3a539b;
+  background: #ffcc00;
+  color: black;
+}
+
+/* Background images for each card */
+.breathing-exercise {
+  background-image: url("deep-breathing.jpg");
+}
+
+.puzzle-game {
+  background-image: url("puzzle-game.jpg");
+}
+
+.doodle-pad {
+  background-image: url("sketch.jpg");
+}
+
+.nature-sounds {
+  background-image: url("nature-sound.jpg");
 }
 
 /* FOOTER */
@@ -406,213 +527,41 @@ footer {
   padding: 1rem;
   background-color: #eee;
   font-size: 0.9rem;
-  width: 100%;
-  margin-top: 30px;
 }
-
-/* login and signup */
-.l_and_s-form {
-  background-color: white;
-  max-width: 500px;
-  margin-inline: auto;
-  margin-top: 130px;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.l_and_s-form h3 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 22px;
-}
-
-.error-message {
-  background-color: #ffcccb;
-  padding: 10px;
-  border: 1px solid #f44336;
-  margin-bottom: 20px;
-  color: #f44336;
-  border-radius: 5px;
-}
-
-.error-message ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.error-message li {
-  margin: 5px 0;
-}
-
-.l_and_s-form input[type="text"],
-.l_and_s-form input[type="password"],
-.l_and_s-form button {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-.l_and_s-form input[type="text"]:focus,
-.l_and_s-form input[type="password"]:focus,
-.l_and_s-form button:hover {
-  border-color: #3498db;
-  outline: none;
-}
-
-.l_and_s-form button {
-  background-color: #3498db;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-form button:hover {
-  background-color: #2980b9;
-}
-
-.l_and_s-form a {
-  display: block;
-  text-align: center;
-  margin-top: 10px;
-  font-size: 16px;
-  color: #3498db;
-  text-decoration: none;
-}
-
-.l_and_s-form a:hover {
-  text-decoration: underline;
-}
-/* Styling for the terms container */
-.terms-container {
-  margin-top: 20px;
-  font-size: 14px;
-  color: #333;
-  display: flex;
-  align-items: center;
-}
-
-.terms-container label {
-  display: flex;
-  align-items: center;
-}
-
-.terms-container input[type="checkbox"] {
-  margin-right: 10px;
-  width: 16px;
-  height: 16px;
-}
-
-.terms-container a {
-  color: #007BFF;
-  text-decoration: none;
-  margin-left: 5px;
-  padding-bottom: 10px;
-}
-
-.terms-container a:hover {
-  text-decoration: underline;
-}
-
-.terms-container label {
-  cursor: pointer;
-  font-family: Arial, sans-serif;
-  line-height: 1.5;
-}
-
-/* terms and conditions */
-.terms {
-  max-width: 800px;
-  margin-inline: auto;
-  margin-top: 40px;
+.redirect-content {
+  padding: 3rem 2rem;
   background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.terms h1 {
-  color: #003366;
+  max-width: 600px;
+  margin: 6rem auto 4rem; /* Adds more top margin to push it down nicely */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  font-size: 28px;
-  margin-bottom: 20px;
 }
 
-.terms h2 {
-  color: #004080;
-  font-size: 22px;
-  margin-top: 20px;
+.redirect-content h1 {
+  margin-bottom: 1rem;
+  color: #152c68; /* Matches button color for better theme */
+  font-size: 2rem;
 }
 
-.terms p {
+.redirect-content p {
+  font-size: 1.2rem;
   color: #555;
-  line-height: 1.6;
-  font-size: 16px;
-  margin-bottom: 15px;
+  margin-bottom: 2rem;
 }
 
-.terms a {
-  color: #0066cc;
-  text-decoration: none;
-}
-
-.terms a:hover {
-  text-decoration: underline;
-}
-
-/* privacy policy */
-.privacy-policy-container {
-  flex: 1; /* Ensures the content area grows to fill available space */
-  max-width: 800px;
-  margin: 40px auto;
-  background-color: #ffffff; /* White background for content */
-  padding:20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.privacy-policy-container h1 {
-  color: #003366; /* Dark blue for headings */
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-.privacy-policy-container h2 {
-  color: #004080; /* Lighter blue for section headings */
-  font-size: 22px;
-  margin-top: 20px;
-}
-
-.privacy-policy-container p,
-.privacy-policy-container ul {
-  color: #555;
-  line-height: 1.6;
-  font-size: 16px;
-  margin-bottom: 15px;
-}
-
-.privacy-policy-container ul {
-  padding-left: 20px;
-}
-
-.privacy-policy-container a {
-  color: #0066cc; /* Light blue for links */
-  text-decoration: none;
-}
-
-.privacy-policy-container a:hover {
-  text-decoration: underline;
-}
-#logout-button {
-  background: none;
-  border: none;
+.btn {
+  padding: 0.7rem 1.5rem;
+  background-color: #152c68;
   color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
   cursor: pointer;
-  font-size: 1em;
-  padding: 0;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #607cbd;
+  transform: translateY(-2px); /* slight button pop on hover */
 }
