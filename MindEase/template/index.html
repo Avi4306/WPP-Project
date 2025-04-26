@@ -20,9 +20,9 @@
           <li><a href="https://www.nami.org/" target="blank">Resources</a></li>
           <li>
             {% if user.is_authenticated %}
-            <form method="post" action="{% url 'logout' %}">
+            <form method="post" action="{% url 'logout' %}" id="logout-form">
               {% csrf_token %}
-              <button type="submit">Logout</button>
+              <button type="submit" id="logout-button">Logout</button>
             </form>
             {% else %}
             <a href="{% url 'login' %}">Login</a>

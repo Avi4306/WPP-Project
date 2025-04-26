@@ -28,10 +28,11 @@ urlpatterns = [
     path('appointment/', views.appointment,name='appoi'),
     path('funzone/', views.funzone,name='fun'),
     path('psychoeducation/', views.psychoeducation,name='psychoedu'),
-    path('appointment/redirect/', views.redirect,name='redirect'),
+    path('appointment/redirect/', views.redirect_page,name='redirect'),
     path('resources', views.resources,name='resources'),
     path('signup/', views.signupPage, name='signup'),
     path('login/', views.loginPage, name='login'),
+    path('logout/', views.logout_user, name='logout'),
     path('terms-and-conditions/', views.terms, name='terms'),
     path('terms-and-conditions/privacy-policy/', views.privacy_policy, name='privacy_policy'),
 ]

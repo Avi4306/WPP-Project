@@ -11,16 +11,16 @@ from django.core.mail import send_mail
 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
-
+from .forms import CustomUserCreationForm
 def signupPage(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect('home')
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     return render(request, 'signup.html', {'form': form})
 
 def loginPage(request):
@@ -34,10 +34,10 @@ def loginPage(request):
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
 
-def logout(request):
+def logout_user(request):
     if request.method == 'POST':
         logout(request)
-        return redirect('login')
+        return redirect('home')
 
 def index(request):
     return render(request, 'index.html')
@@ -105,7 +105,7 @@ def funzone(request):
 def resources(request):
     return render(request, 'resources.html')
 
-def redirect(request):
+def redirect_page(request):
     return render(request, 'redirect.html')
 
 def terms(request):
