@@ -48,37 +48,52 @@ def appointment(request):
             name = request.POST.get("name")
             date = request.POST.get("date")
             mail = request.POST.get('mail')
-            time = request.POST.get('time')
+            time_slot = request.POST.get('time')
             concern = request.POST.get('condition')
-            messages = f"Your AppointMent is ConForMed be Ready on {date} on time {time},Thankyou for visiting our Website." 
-            # Put each field in a list for DataFrame
+            message_body = f"Your Appointment is Confirmed! Get ready on {date} at {time_slot}.we make sure you have good experience thankyou for visiting our website."
+        
+            # Save data to CSV
             df = pd.DataFrame({
                 'name': [name],
                 'date': [date],
                 'mail': [mail],
-                'time': [time],
-                'concern': [concern]
+                'time': [time_slot],
+                'concern': [concern],
             })
-
             df.to_csv("data.csv", mode='a', index=False, header=False)
-            
-            en=datas(name=name, email=mail, date=date, time=time, concern=concern)
+
+            # Save to database
+            en = datas(name=name, email=mail, date=date, time=time_slot, concern=concern)
             en.save()
-            
-            send_mail(
-            subject='Appointment Confirmation',
-            message=messages,
-            from_email=f'{mail}',
-            recipient_list=[mail],
-            fail_silently=False,
+            email_message = EmailMessage(
+                subject='Appointment Confirmation',
+                body=message_body,
+                from_email=EMAIL_HOST_USER,
+                to=[mail],
             )
+            email_message.send()
+            # Append email to 'Sent' folder via IMAP
+            msg = email.message.EmailMessage()
+            msg['Subject'] = 'Appointment Confirmation'
+            msg['From'] = EMAIL_HOST_USER
+            msg['To'] = mail
+            msg.set_content(message_body)
+
+            imap_server = 'imap.gmail.com'
+            imap_user = EMAIL_HOST_USER
+            imap_password = EMAIL_HOST_PASSWORD  # Ensure this is securely stored
+
+            with imaplib.IMAP4_SSL(imap_server) as imap:
+                imap.login(imap_user, imap_password)
+                imap.append('"[Gmail]/Sent Mail"', '', imaplib.Time2Internaldate(time.time()), msg.as_bytes())
+                imap.logout()
+
             return render(request, "redirect.html")
-           
+
         except Exception as e:
             return HttpResponse(f'Error: {e}')
     else:
         return render(request, "appointment.html")
-
 
 def psychoeducation(request):
     conditions = ['Depression', 'Anxiety', 'Bipolar', 'Schizophrenia', 'PTSD']
