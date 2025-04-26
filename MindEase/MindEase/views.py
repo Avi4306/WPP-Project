@@ -7,12 +7,16 @@ import pandas as pd
 import io
 import urllib, base64
 from MindEase.models import datas
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout
 from .forms import CustomUserCreationForm
 from random import choice
+import imaplib
+import email
+import time
+from MindEase.settings import EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
 def signupPage(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -51,7 +55,8 @@ def appointment(request):
             mail = request.POST.get('mail')
             time_slot = request.POST.get('time')
             concern = request.POST.get('condition')
-            message_body = f"Your Appointment is Confirmed! Get ready on {date} at {time_slot}.we make sure you have good experience thankyou for visiting our website."
+            psycologists = ["Avi Patel", "Rudra Trivedi", "Manthan Ladda", "Vishva Trivedi"]
+            message_body = f"Hi {request.user.username},\n\nYour appointment has been booked successfully!\n\nDate: {date}\nTime: {time_slot}\nPsychologist: {choice(psycologists)}\n\nWe make sure you have good experience\n\nThank you for visiting our website."
         
             # Save data to CSV
             df = pd.DataFrame({
@@ -67,7 +72,7 @@ def appointment(request):
             en = datas(name=name, email=mail, date=date, time=time_slot, concern=concern)
             en.save()
             email_message = EmailMessage(
-                subject='Appointment Confirmation',
+                subject='Appointment Confirmed - MindEase',
                 body=message_body,
                 from_email=EMAIL_HOST_USER,
                 to=[mail],
@@ -75,7 +80,7 @@ def appointment(request):
             email_message.send()
             # Append email to 'Sent' folder via IMAP
             msg = email.message.EmailMessage()
-            msg['Subject'] = 'Appointment Confirmation'
+            msg['Subject'] = 'Appointment Confirmed - MindEase'
             msg['From'] = EMAIL_HOST_USER
             msg['To'] = mail
             msg.set_content(message_body)
