@@ -90,12 +90,12 @@ Thank you for visiting our website."""
             df.to_csv("data.csv", mode='a', index=False, header=False)
 
                 # Save to database
-                en = datas(name=name, email=mail, contact=contact, date=date, time=time_slot, concern=concern)
-                en.save()
-                from_email = 'mindease20170604@gmail.com'
-                to_mail = [mail]
-                send_mail(subject, message_body, from_email, to_mail, fail_silently=False)
-                return redirect('redirect')
+            en = datas(name=name, email=mail, contact=contact, date=date, time=time_slot, concern=concern)
+            en.save()
+            from_email = 'mindease20170604@gmail.com'
+            to_mail = [mail]
+            send_mail(subject, message_body, from_email, to_mail, fail_silently=False)
+            return redirect('redirect')
 
         except Exception as e:
             return HttpResponse(f'Error: {e}')
