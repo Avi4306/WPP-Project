@@ -32,15 +32,17 @@
   </section>
 
   <section class="appointment-form">
-    <form id="app-form" method="POST" action="{% url 'appoi' %}">
+    <form id="appointment-form" method="POST" action="{% url 'appoi' %}">
+      {% csrf_token %}
+      
       <label for="name">Full Name</label>
-      <input type="text" id="name" required />
+      <input type="text" id="name" name="name" required />
 
       <label for="contact">Contact Number</label>
-      <input type="tel" id="contact" required />
+      <input type="tel" id="contact" name="contact" required />
 
       <label for="condition">Concern</label>
-      <select id="condition" required>
+      <select id="condition" name="condition" required>
         <option value="">--Select--</option>
         <option value="depression">Depression</option>
         <option value="anxiety">Anxiety</option>
@@ -50,11 +52,11 @@
       </select>
 
       <label for="date">Preferred Date</label>
-      <input type="date" id="date" required />
+      <input type="date" id="date" name="date" required />
 
-      <label for="time">Preferred Time</label>
-      <input type="time" id="time" required />
-      {% csrf_token %}
+      <label for="time_slot">Preferred Time</label>
+      <input type="time" id="time_slot" name="time_slot" required />
+      
       <button type="submit">Book Appointment</button>
     </form>
   </section>
@@ -62,13 +64,13 @@
   <footer>
     <p>© 2025 MindEase | For Support, Call: 1800-123-HELP</p>
   </footer>
+
   <script>
   document.getElementById('appointment-form').addEventListener('submit', function(event) {
     if (!this.checkValidity()) {
-        event.preventDefault(); // Stop submission if invalid
+      event.preventDefault(); // Prevent submission if the form is invalid
     }
-    // If valid, it will naturally POST to Django without any JS redirection
-});
-    </script>
+  });
+  </script>
 </body>
 </html>
