@@ -34,13 +34,13 @@
   <section class="appointment-form">
     <form id="app-form" method="POST" action="{% url 'appoi' %}">
       <label for="name">Full Name</label>
-      <input type="text" id="name" required />
+      <input type="text" id="name" name="name" required />
 
       <label for="contact">Contact Number</label>
-      <input type="tel" id="contact" required />
+      <input type="tel" id="contact" name="contact" required />
 
       <label for="condition">Concern</label>
-      <select id="condition" required>
+      <select id="condition" name="condition" required>
         <option value="">--Select--</option>
         <option value="depression">Depression</option>
         <option value="anxiety">Anxiety</option>
@@ -50,10 +50,10 @@
       </select>
 
       <label for="date">Preferred Date</label>
-      <input type="date" id="date" required />
+      <input type="date" id="date" name="date" required />
 
       <label for="time">Preferred Time</label>
-      <input type="time" id="time" required />
+      <input type="time" id="time" name="time" required />
       {% csrf_token %}
       <button type="submit">Book Appointment</button>
     </form>

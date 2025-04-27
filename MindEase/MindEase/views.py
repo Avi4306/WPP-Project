@@ -77,7 +77,8 @@ def appointment(request):
                 en = datas(name=name, email=mail, contact=contact, date=date, time=time_slot, concern=concern)
                 en.save()
                 from_email = 'mindease20170604@gmail.com'
-                send_mail(subject, message_body, from_email, mail, fail_silently=False)
+                to_mail = [mail]
+                send_mail(subject, message_body, from_email, to_mail, fail_silently=False)
                 return redirect('redirect')
 
             except Exception as e:
