@@ -32,14 +32,19 @@
   </section>
 
   <section class="appointment-form">
-    <form id="app-form" method="POST" action="{% url 'appoi' %}">
+    <form id="appointment-form" method="POST" action="{% url 'appoi' %}">
+      {% csrf_token %}
+      
       <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
       <input type="text" id="name" name="name" required />
 
       <label for="contact">Contact Number</label>
       <input type="tel" id="contact" name="contact" required />
+      <input type="tel" id="contact" name="contact" required />
 
       <label for="condition">Concern</label>
+      <select id="condition" name="condition" required>
       <select id="condition" name="condition" required>
         <option value="">--Select--</option>
         <option value="depression">Depression</option>
@@ -62,13 +67,13 @@
   <footer>
     <p>© 2025 MindEase | For Support, Call: 1800-123-HELP</p>
   </footer>
+
   <script>
   document.getElementById('appointment-form').addEventListener('submit', function(event) {
     if (!this.checkValidity()) {
-        event.preventDefault(); // Stop submission if invalid
+      event.preventDefault(); // Prevent submission if the form is invalid
     }
-    // If valid, it will naturally POST to Django without any JS redirection
-});
-    </script>
+  });
+  </script>
 </body>
 </html>
