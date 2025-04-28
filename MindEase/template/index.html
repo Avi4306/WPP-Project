@@ -1,78 +1,98 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MindEase - Mental Health Support</title>
-  <link rel="stylesheet" href="{% static 'styles.css' %}" />
-</head>
-<body>
-  <header>
-    <nav>
-      <div class="logo"><a href="{% url 'home' %}">MindEase</a></div>
-      <ul class="nav-links">
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'psychoedu' %}">Psychoeducation</a></li>
-        <li><a href="{% url 'appoi' %}">Appointment</a></li>
-        <li><a href="{% url 'fun' %}">Fun Zone</a></li>
-        <li><a href="{% url 'resources' %}">Resources</a></li>
-        <li>
-          {% if user.is_authenticated %}
-          <form method="post" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit" id="logout-button">Logout</button>
-          </form>
-          {% else %}
-          <a href="{% url 'login' %}">Login</a>
-          |
-          <a href="{% url 'signup' %}">Sign Up</a>
-          {% endif %}
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindEase - Mental Health Support</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo"><a href="{% url 'home' %}">MindEase</a></div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'psychoedu' %}">Psychoeducation</a></li>
+          <li><a href="{% url 'appoi' %}">Appointment</a></li>
+          <li><a href="{% url 'fun' %}">Fun Zone</a></li>
+          <li><a href="{% url 'resources' %}">Resources</a></li>
+          <li>
+            {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" id="logout-button">Logout</button>
+            </form>
+            {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            |
+            <a href="{% url 'signup' %}">Sign Up</a>
+            {% endif %}
+          </li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+          &#9776;
+          <!-- This is the hamburger icon -->
+        </div>
+      </nav>
+    </header>
 
-  <!-- HERO Banner -->
-  <section class="hero-banner">
-    <div class="hero-content">
-      <h1>Your Mental Health Matters</h1>
-      <p>Explore, express, and heal — all in one safe space.</p>
-      <a href="#panels" class="cta-button">Start Your Journey</a>
-    </div>
-  </section>
+    <!-- HERO Banner -->
+    <section class="hero-banner">
+      <div class="hero-content">
+        <h1>Your Mental Health Matters</h1>
+        <p>Explore, express, and heal — all in one safe space.</p>
+        <a href="#panels" class="cta-button">Start Your Journey</a>
+      </div>
+    </section>
 
-  <!-- Panels Section -->
-  <section id="panels" class="panel-section">
-    
-    <div class="panel" id="panels">
-      <h2>Look For Mental Health Conditions</h2>
-      <p>There are no Mental Disorders, only Mental Conditions.</p>
-      <a href="{% url 'psychoedu' %}" class="panel-button">Explore Conditions</a>
-      <div class="quote">"Healing takes time, and asking for help is a courageous step."</div>
-    </div>
+    <!-- Panels Section -->
+    <section id="panels" class="panel-section">
+      <div class="panel" id="panels">
+        <h2>Look For Mental Health Conditions</h2>
+        <p>There are no Mental Disorders, only Mental Conditions.</p>
+        <a href="{% url 'psychoedu' %}" class="panel-button"
+          >Explore Conditions</a
+        >
+        <div class="quote">
+          "Healing takes time, and asking for help is a courageous step."
+        </div>
+      </div>
 
+      <div class="panel">
+        <h2>Talk with our Psychologists</h2>
+        <p>Qualified professionals ready to guide you.</p>
+        <a href="{% url 'appoi' %}" class="panel-button">Book Appointment</a>
+        <div class="quote">
+          "Your illness does not define you. Your strength and courage does."
+        </div>
+      </div>
 
-    <div class="panel">
-      <h2>Talk with our Psychologists</h2>
-      <p>Qualified professionals ready to guide you.</p>
-      <a href="{% url 'appoi' %}" class="panel-button">Book Appointment</a>
-      <div class="quote">"Your illness does not define you. Your strength and courage does."</div>
-    </div>
+      <div class="panel">
+        <h2>Funzone to Calm Your Mind</h2>
+        <p>Meditation, games, creativity, and nature experiences await you.</p>
+        <a href="{% url 'fun' %}" class="panel-button">Enter Funzone</a>
+        <div class="quote">
+          "Feelings are just visitors. Let them come and go."
+        </div>
+      </div>
+    </section>
 
-    <div class="panel">
-      <h2>Funzone to Calm Your Mind</h2>
-      <p>Meditation, games, creativity, and nature experiences await you.</p>
-      <a href="{% url 'fun' %}" class="panel-button">Enter Funzone</a>
-      <div class="quote">"Feelings are just visitors. Let them come and go."</div>
-    </div>
-
-  </section>
-
-  <footer>
-    <p>© 2025 MindEase | For Support, Call: 1800-123-HELP | Designed By: Rudra, Avi, Vishva, Manthan</p>
-  </footer>
-  <script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
+    <footer>
+      <p>
+        © 2025 MindEase | For Support, Call: 1800-123-HELP | Designed By: Rudra,
+        Avi, Vishva, Manthan
+      </p>
+    </footer>
+    <script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
     <script src="https://files.bpcontent.cloud/2025/04/24/05/20250424054554-VFKX9ELD.js"></script>
-</body>
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    </script>
+  </body>
 </html>

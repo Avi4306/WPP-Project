@@ -58,7 +58,7 @@ def appointment(request):
             date = request.POST.get("date")
             mail = request.user.email
             contact = request.POST.get("contact")
-            time_slot = request.POST.get("time_slot")
+            time_slot = request.POST.get("time")
             concern = request.POST.get("condition")
 
             psycologists = ["Avi Patel", "Rudra Trivedi", "Manthan Ladda", "Vishva Trivedi"]

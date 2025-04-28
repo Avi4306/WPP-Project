@@ -11,7 +11,7 @@
     <header>
       <nav>
         <div class="logo"><a href="{% url 'home' %}">MindEase</a></div>
-        <ul class="nav-links">
+        <ul class="nav-links" id="nav-links">
           <li><a href="{% url 'home' %}">Home</a></li>
         <li><a href="{% url 'psychoedu' %}">Psychoeducation</a></li>
         <li><a href="{% url 'appoi' %}">Appointment</a></li>
@@ -30,6 +30,10 @@
           {% endif %}
         </li>
         </ul>
+        <div class="hamburger" id="hamburger">
+          &#9776;
+          <!-- This is the hamburger icon -->
+        </div>
       </nav>
     </header>
 
@@ -68,5 +72,13 @@
     </footer>
     <script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
     <script src="https://files.bpcontent.cloud/2025/04/24/05/20250424054554-VFKX9ELD.js"></script>
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    </script>
   </body>
 </html>

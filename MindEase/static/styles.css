@@ -21,7 +21,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10000;
+  z-index: 100;
 }
 nav {
   display: flex;
@@ -522,7 +522,7 @@ footer {
 }
 
 #logout-button {
-  background-color: #182848;
+  background-color: transparent;
   color: white;
   font-family: 'Segoe UI', sans-serif;
   font-weight: 500;
@@ -701,4 +701,182 @@ textarea:invalid {
 }
 .privacy-policy-container ul{
   padding-left: 3%;
+}
+.hamburger {
+  display: none;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+/* MEDIA QUERIES: Mobile Responsive Adjustments */
+@media (max-width: 600px) {
+  header {
+    padding: 1rem;
+  }
+  body{
+    padding-top: 2rem;
+  }
+  
+  .nav-links {
+    display: none; /* Hide navigation links */
+    width: 100%;
+    position: absolute;
+    top: 70px; /* Adjust based on the height of the header */
+    left: 0;
+    background: linear-gradient(to right, #3381d9, #344d67); /* Dark background for mobile menu */
+    flex-direction: column; /* Stack menu items vertically */
+    text-align: center;
+    padding: 10px 0;
+    z-index: 999; /* Ensure it overlays over other content */
+  }
+  
+  /* Display the hamburger menu icon */
+  .hamburger {
+    display: block;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Style for each navigation item when shown in mobile view */
+  .nav-links li {
+    margin: 15px 0; /* Add some space between menu items */
+  }
+  
+  /* Style for links inside nav-links */
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  /* Show the nav links when hamburger is clicked */
+  .nav-links.active {
+    display: flex; /* Show the nav links */
+  }
+  .hero-banner {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://thumbs.dreamstime.com/b/world-mental-health-day-background-brain-leaves-positive-mindset-293111083.jpg) center/cover no-repeat;
+    height: 10rem;
+  }
+
+  .hero-content {
+    padding-top: 0;
+    margin-top: -10rem;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Additional mobile styles here */
+  .cta-button {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .panel-section {
+    padding: 2rem 1rem;
+    gap: 1rem;
+  }
+
+  .panel {
+    padding: 1.5rem;
+  }
+
+  .page-title {
+    padding: 3rem 1rem 2rem;
+  }
+  #app{
+    padding-top: 5rem;
+  }
+  .page-title h1 {
+    font-size: 2rem;
+  }
+
+  .page-title p {
+    font-size: 1.1rem;
+  }
+
+  .internal-nav {
+    font-size: 1.2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .condition-grid {
+    padding: 1rem;
+    gap: 4rem;
+  }
+
+  .facts-wrapper {
+    padding: 0 1rem 2rem;
+  }
+
+  .facts {
+    padding: 1.5rem;
+  }
+
+  .graph-wrapper img {
+    width: 90%;
+  }
+
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  .resource-box {
+    padding: 1.5rem;
+  }
+
+  .reference-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 3rem;
+  }
+
+  .reference-item img {
+    width: 80%;
+    height: auto;
+  }
+
+  .appointment-form {
+    max-width: 90%; /* Make form width more flexible on small screens */
+    padding: 1.5rem; /* Reduce padding to make the form fit better */
+  }
+
+  .appointment-form input,
+  .appointment-form select {
+    font-size: 0.9rem; /* Slightly reduce the font size for better readability */
+  }
+
+  .appointment-form button {
+    padding: 0.75rem; /* Maintain button size */
+    font-size: 1rem; /* Adjust font size for button */
+  }
+
+  /* Adjust the label font size for mobile screens */
+  .appointment-form label {
+    font-size: 1rem;
+  }
+
+  .funzone-grid {
+    padding: 2rem 1rem;
+    gap: 3rem;
+  }
+
+  .fun-card {
+    height: 250px;
+    padding: 1.5rem;
+  }
+
+  .redirect-content {
+    margin: 5rem 1rem 3rem;
+    padding: 2rem 1rem;
+  }
 }

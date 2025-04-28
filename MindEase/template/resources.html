@@ -13,7 +13,7 @@
   <header>
     <nav>
       <div class="logo"><a href="{% url 'home' %}">MindEase</a></div>
-      <ul class="nav-links">
+      <ul class="nav-links" id="nav-links">
         <li><a href="{% url 'home' %}">Home</a></li>
         <li><a href="{% url 'psychoedu' %}">Psychoeducation</a></li>
         <li><a href="{% url 'appoi' %}">Appointment</a></li>
@@ -32,13 +32,17 @@
           {% endif %}
         </li>
       </ul>
+      <div class="hamburger" id="hamburger">
+        &#9776;
+        <!-- This is the hamburger icon -->
+      </div>
     </nav>
   </header>
 
   <section class="page-title">
-    <h1>Resources</h1>
-    <p>Your mind matters. Let's get you well!</p>
-    <ul class="internal-nav">
+    <h1 style="font-size: 2rem;">Resources</h1>
+    <p style="font-size: 1.3rem;">Your mind matters. Let's get you well!</p>
+    <ul class="internal-nav" style="font-size: 1.1rem;">
       <li><a href="#books">Books</a></li>
       <li><a href="#articles">Articles</a></li>
       <li><a href="#videos">Videos</a></li>
@@ -110,5 +114,13 @@
   <footer>
     <p>Need help? Call 1-800 891 4416 — You're not alone.</p>
   </footer>
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
 </body>
 </html>

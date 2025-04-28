@@ -11,12 +11,16 @@
     <header>
       <nav>
         <div class="logo"><a href="{% url 'home' %}">MindEase</a></div>
-        <ul class="nav-links">
+        <ul class="nav-links" id="nav-links">
           <li><a href="{% url 'home' %}">Home</a></li>
           <li><a href="{% url 'psychoedu' %}">PsychoEducation</a></li>
           <li><a href="{% url 'appoi' %}">Appointment</a></li>
           <li><a href="{% url 'fun' %}">Fun Zone</a></li>
         </ul>
+        <div class="hamburger" id="hamburger">
+          &#9776;
+          <!-- This is the hamburger icon -->
+        </div>
       </nav>
     </header>
 
@@ -46,5 +50,13 @@
     <footer>
       <p>© 2025 MindEase | For Support, Call: 1800-123-HELP</p>
     </footer>
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    </script>
   </body>
 </html>

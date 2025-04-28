@@ -9,24 +9,17 @@
 </head>
 <body>
   <header>
-    <nav class="nav-links">
+    <nav>
       <div class="logo"><a href="{% url 'home' %}">MindEase</a></div>
-      <li>
-        {% if user.is_authenticated %}
+
         <form method="post" action="{% url 'logout' %}">
           {% csrf_token %}
           <button type="submit" id="logout-button">Logout</button>
         </form>
-        {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        |
-        <a href="{% url 'signup' %}">Sign Up</a>
-        {% endif %}
-      </li>
     </nav>
   </header>
 
-  <section class="page-title">
+  <section class="page-title" id="app">
     <h1>Book an Appointment</h1>
     <p>Get professional help from licensed mental health experts.</p>
   </section>
@@ -37,14 +30,11 @@
       
       <label for="name">Full Name</label>
       <input type="text" id="name" name="name" required />
-      <input type="text" id="name" name="name" required />
 
       <label for="contact">Contact Number</label>
       <input type="tel" id="contact" name="contact" required />
-      <input type="tel" id="contact" name="contact" required />
 
       <label for="condition">Concern</label>
-      <select id="condition" name="condition" required>
       <select id="condition" name="condition" required>
         <option value="">--Select--</option>
         <option value="depression">Depression</option>
