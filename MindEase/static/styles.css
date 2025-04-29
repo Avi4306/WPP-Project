@@ -976,21 +976,3 @@ textarea:invalid {
   transform: translateX(-50%) scaleX(1);
   opacity: 1;
 }
-.nav-links li form::after{
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 6px;
-  transform: translateX(-50%) scaleX(0);
-  transform-origin: center;
-  width: 60%;
-  height: 2px;
-  background: linear-gradient(90deg, #ffd700, #ff8c00, #ffd700); /* golden to orange line */
-  transition: transform 0.4s ease, opacity 0.4s ease;
-  opacity: 0;
-  border-radius: 10px;
-}
-.nav-links li form:hover:after{
-  transform: translateX(-50%) scaleX(1);
-  opacity: 1;
-}
