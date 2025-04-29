@@ -38,7 +38,7 @@ MindEase is a Django-based website focused on mental health awareness and suppor
 ## Hosting
 
 The website is hosted and can be accessed at the following URL:
-[MindEase Website](https://manthan676.pythonanywhere.com/)
+[MindEase Website](https://mindeaseproject.pythonanywhere.com/)
 
 ---
 
