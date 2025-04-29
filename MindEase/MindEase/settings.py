@@ -133,7 +133,7 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 # EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'mindease20170604@gmail.com'  
-EMAIL_HOST_PASSWORD = 'kehfkjqyeemqzeym'  
+EMAIL_HOST_PASSWORD = 'email-host-password-here'  
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
