@@ -12,14 +12,45 @@
       <nav>
         <div class="logo"><a href="{% url 'home' %}">MindEase</a></div>
         <ul class="nav-links" id="nav-links">
-          <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'psychoedu' %}">PsychoEducation</a></li>
-          <li><a href="{% url 'appoi' %}">Appointment</a></li>
-          <li><a href="{% url 'fun' %}">Fun Zone</a></li>
+          <li>
+            <a href="{% url 'home' %}">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'psychoedu' %}" >
+              Psychoeducation
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'appoi' %}" >
+              Appointment
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'fun' %}" >
+              Fun Zone
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'resources' %}" >
+              Resources
+            </a>
+          </li>
+          <li>
+            {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" id="logout-button">Logout</button>
+            </form>
+            {% else %}
+            <a href="{% url 'login' %}" >Login</a>
+            <a href="{% url 'signup' %}" >Sign Up</a>
+            {% endif %}
+          </li>
         </ul>
         <div class="hamburger" id="hamburger">
           &#9776;
-          <!-- This is the hamburger icon -->
         </div>
       </nav>
     </header>
@@ -49,6 +80,8 @@
 
     <footer>
       <p>© 2025 MindEase | For Support, Call: 1800-123-HELP</p>
+      <script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
+      <script src="https://files.bpcontent.cloud/2025/04/24/05/20250424054554-VFKX9ELD.js"></script>
     </footer>
     <script>
       const hamburger = document.getElementById("hamburger");

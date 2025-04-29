@@ -11,11 +11,45 @@
   <header>
     <nav>
       <div class="logo"><a href="{% url 'home' %}">MindEase</a></div>
-
-        <form method="post" action="{% url 'logout' %}">
-          {% csrf_token %}
-          <button type="submit" id="logout-button">Logout</button>
-        </form>
+      <ul class="nav-links" id="nav-links">
+        <li>
+          <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'psychoedu' %}">Psychoeducation</a>
+        </li>
+        <li>
+          <a href="{% url 'appoi' %}" class="{% if request.resolver_match.url_name == 'appoi' %}active{% endif %}">
+            Appointment
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'fun' %}">
+            Fun Zone
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'resources' %}">
+            Resources
+          </a>
+        </li>
+        <li>
+          {% if user.is_authenticated %}
+          <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" id="logout-button">Logout</button>
+          </form>
+          {% else %}
+          <a href="{% url 'login' %}" >Login</a> 
+          <a href="{% url 'signup' %}" >Sign Up</a>
+          {% endif %}
+        </li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        &#9776;
+      </div>
     </nav>
   </header>
 

@@ -40,7 +40,6 @@ nav {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
 }
 
 .nav-links li a{
@@ -48,7 +47,13 @@ nav {
   text-decoration: none;
   font-weight: 500;
 }
-
+.nav-links li {
+  display: flex;
+}
+.nav-links li form{
+  align-content: center;
+  padding: 8px 20px;
+}
 .hero-content {
   text-align: left; /* Shift all text to left */
   max-width: 600px; /* Optional: Limit width to look nice */
@@ -709,6 +714,45 @@ textarea:invalid {
   cursor: pointer;
 }
 /* MEDIA QUERIES: Mobile Responsive Adjustments */
+@media (max-width:1000px){
+  .nav-links {
+    display: none; /* Hide navigation links */
+    width: 100%;
+    position: absolute;
+    top: 70px; /* Adjust based on the height of the header */
+    left: 0;
+    background: linear-gradient(to right, #3381d9, #344d67); /* Dark background for mobile menu */
+    flex-direction: column; /* Stack menu items vertically */
+    text-align: center;
+    padding: 10px 0;
+    z-index: 999; /* Ensure it overlays over other content */
+  }
+  
+  /* Display the hamburger menu icon */
+  .hamburger {
+    display: block;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Style for each navigation item when shown in mobile view */
+  .nav-links li {
+    margin: 15px 0; /* Add some space between menu items */
+  }
+  
+  /* Style for links inside nav-links */
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  /* Show the nav links when hamburger is clicked */
+  .nav-links.active {
+    display: flex; /* Show the nav links */
+  }
+}
 @media (max-width: 600px) {
   header {
     padding: 1rem;
@@ -879,4 +923,74 @@ textarea:invalid {
     margin: 5rem 1rem 3rem;
     padding: 2rem 1rem;
   }
+}
+.nav-links a.active {
+  color: #71d3f0; /* Example: Green color when active */
+  font-weight: bold;
+  border-bottom: 2px solid #71d3f0;
+}
+
+.nav-links li a {
+  display: inline-block;
+  padding: 8px 20px;
+  color: #f0f0f0; /* soft white text */
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  border-radius: 20px;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Active tab styling */
+.nav-links li.active a {
+  background: rgba(255, 255, 255, 0.2); /* soft glass-like background */
+  font-weight: 700;
+  color: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+/* Hover effect on non-active tabs */
+.nav-links li:not(.active) a:hover {
+  background: rgba(255, 255, 255, 0.1); /* slightly lighter glow */
+  color: #ffd700; /* golden glow */
+}
+
+/* Glowing underline effect */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, #ffd700, #ff8c00, #ffd700); /* golden to orange line */
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  border-radius: 10px;
+}
+
+.nav-links li a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+  opacity: 1;
+}
+.nav-links li form::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, #ffd700, #ff8c00, #ffd700); /* golden to orange line */
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  border-radius: 10px;
+}
+.nav-links li form:hover:after{
+  transform: translateX(-50%) scaleX(1);
+  opacity: 1;
 }
